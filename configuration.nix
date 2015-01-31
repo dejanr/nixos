@@ -78,7 +78,6 @@
     powertop
     pidgin
     skype4pidgin
-    rxvt_unicode
     ruby
     rake
     silver-searcher
@@ -130,8 +129,6 @@
           xmodmap ~/.Xmodmap
           xsetroot -cursor_name left_ptr;
           xsetroot general;
-          urxvtd --quiet --opendisplay --fork;
-          urxvtc &
         '';
       };
 
