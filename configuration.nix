@@ -6,14 +6,38 @@
       ./hardware-configuration.nix
     ];
 
-  boot.loader.gummiboot.enable = true;
-  boot.loader.gummiboot.timeout = 3;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.cleanTmpDir = true;
+  boot = {
+    kernelPackages = pkgs.linuxPackages_3_17;
 
+    loader.gummiboot.enable = true;
+    loader.gummiboot.timeout = 3;
+    loader.efi.canTouchEfiVariables = true;
+
+    cleanTmpDir = true;
+  };
+
+
+  fonts = {
+    enableCoreFonts = true;
+    enableFontDir = true;
+
+    fonts = with pkgs; [
+      inconsolata
+      ubuntu_font_family
+      dejavu_fonts
+      liberation_ttf
+      proggyfonts
+      source-sans-pro
+      terminus_font
+      ttf_bitstream_vera
+    ];
+  };
+
+  nix.binaryCaches = [ http://cache.nixos.org http://hydra.nixos.org ];
 
   nixpkgs.config = {
     allowUnfree = true;
+
     firefox = {
       jre = true;
       enableGoogleTalkPlugin = true;
@@ -22,21 +46,53 @@
   };
 
   environment.systemPackages = with pkgs; [
+    # window management
+    stumpwm
+    compton
+    xlaunch
+
+    # system
     ack
     acpi
+    autojump
+    axel
+    bind
+    binutils
     bash
     curl
+    conkeror
     dmenu
+    dzen2
+    emacs
+    file
     firefox
     nodejs
-    vim
+    vimHugeX
     git
+    gitFull
+    go
+    htop
     wget
+    nodejs
     nix-repl
+    powertop
+    pidgin
+    skype4pidgin
     rxvt_unicode
     ruby
     rake
+    silver-searcher
+    terminator
     tree
+    tmux
+    wpa_supplicant_gui
+    xdg_utils
+    xlibs.xev
+    xlibs.xset
+    xlibs.xmodmap
+    xclip
+    linuxPackages_3_17.cpupower
+    unzip
   ];
 
   services = {
@@ -53,30 +109,69 @@
       driSupport = true;
 
       desktopManager.default = "none";
-      windowManager.herbstluftwm.enable = true;
-      windowManager.default = "herbstluftwm";
+      desktopManager.xterm.enable = false;
+      desktopManager.xfce.enable = false;
+
+      windowManager.stumpwm.enable = true;
+      windowManager.default = "stumpwm";
+
+      useGlamor = true;
 
       displayManager = {
         slim.enable = true;
         slim.defaultUser = "dejanr";
-        # Get lid suspend for minimalist window managers
+        slim.autoLogin = true;
+
         desktopManagerHandlesLidAndPower = false;
+
+        sessionCommands = ''
+          xrdb -merge ~/.Xdefaults;
+          xsetroot -solid dark;
+          xmodmap ~/.Xmodmap
+          xsetroot -cursor_name left_ptr;
+          xsetroot general;
+          urxvtd --quiet --opendisplay --fork;
+          urxvtc &
+        '';
       };
 
       synaptics = {
         enable = true;
+        additionalOptions = ''
+          Option "VertScrollDelta" "-100"
+          Option "HorizScrollDelta" "-100"
+          Option "PalmMinWidth" "8"
+          Option "PalmMinZ" "100"
+        '';
+        buttonsMap = [ 1 3 2 ];
+        tapButtons = false;
+        palmDetect = true;
+        fingersMap = [ 0 0 0 ];
         twoFingerScroll = true;
+        vertEdgeScroll = false;
       };
+
+      screenSection = ''
+        Option "DPI" "96 x 96"
+      '';
 
       multitouch.enable = true;
       multitouch.ignorePalm = true;
+      multitouch.invertScroll = true;
 
       vaapiDrivers = [ pkgs.vaapiIntel ];
+
+      xkbOptions = "terminate:ctrl_alt_bksp, ctrl:nocaps";
     };
+
+    upower.enable = true;
+    nixosManual.showManual = true;
   };
 
+  security.setuidPrograms = [ "xlaunch" ];
+
   users = {
-    mutableUsers = false;
+    mutableUsers = true;
     extraUsers.dejanr = {
       description = "Dejan Ranisavljevic";
       name = "dejanr";
@@ -85,10 +180,10 @@
       shell = "/run/current-system/sw/bin/bash";
       home = "/home/dejanr";
       createHome = true;
-      hashedPassword = "$6$vj9HMM/LwjXSbkgf$TLrcYrLG0u/ToiCED2LiMKoyCXo/gWjSyIfs.gGIiPQ2oLK1WWix3z05yHfy90rsr1GoHP.Z31UX7O.Vq9BEt0";
     };
-    extraUsers.root.hashedPassword = "$6$vj9HMM/LwjXSbkgf$TLrcYrLG0u/ToiCED2LiMKoyCXo/gWjSyIfs.gGIiPQ2oLK1WWix3z05yHfy90rsr1GoHP.Z31UX7O.Vq9BEt0";
   };
+
+  users.extraGroups.docker.members = [ "dejanr" ];
 
   networking = {
     hostName = "mbp";
