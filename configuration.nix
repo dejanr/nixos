@@ -54,6 +54,9 @@
     # system
     ack
     acpi
+    alsaLib
+    alsaUtils
+    alsaPlugins
     apg
     autojump
     axel

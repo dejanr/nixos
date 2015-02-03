@@ -15,6 +15,8 @@
     config.boot.kernelPackages.v4l2loopback
   ];
 
+  hardware.pulseaudio.enable = true;
+
   fileSystems."/" =
     { device = "/dev/sda5";
       fsType = "ext4";
