@@ -54,6 +54,7 @@
     # system
     ack
     acpi
+    apg
     autojump
     axel
     bind
@@ -70,13 +71,18 @@
     vimHugeX
     git
     gitFull
+    gitAndTools.git-extras
     go
     htop
+    execline
+    irssi
     wget
     nodejs
     nix-repl
+    openssl
     powertop
     pidgin
+    python
     skype4pidgin
     ruby
     rake
