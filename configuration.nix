@@ -10,7 +10,7 @@
     kernelPackages = pkgs.linuxPackages_3_17;
 
     loader.gummiboot.enable = true;
-    loader.gummiboot.timeout = 3;
+    #loader.gummiboot.timeout = 3;
     loader.efi.canTouchEfiVariables = true;
 
     cleanTmpDir = true;
