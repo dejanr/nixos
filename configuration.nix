@@ -70,6 +70,7 @@
     emacs
     file
     firefox
+    mutt
     nodejs
     vimHugeX
     git
