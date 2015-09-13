@@ -1,21 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
-
-  boot = {
-    kernelPackages = pkgs.linuxPackages_3_17;
-
-    loader.gummiboot.enable = true;
-    #loader.gummiboot.timeout = 3;
-    loader.efi.canTouchEfiVariables = true;
-
-    cleanTmpDir = true;
-  };
-
+  time.timeZone = "Europe/Berlin";
 
   fonts = {
     enableCoreFonts = true;
@@ -33,25 +19,15 @@
     ];
   };
 
-  nix.binaryCaches = [ http://cache.nixos.org http://hydra.nixos.org ];
-
   nixpkgs.config = {
     allowUnfree = true;
-
-    firefox = {
-      jre = true;
-      enableGoogleTalkPlugin = true;
-      enableAdobeFlash = true;
+    chromium = {
+      enablePepperPDF = true;
+      enableWideVine = true;
     };
   };
 
   environment.systemPackages = with pkgs; [
-    # window management
-    stumpwm
-    compton
-    xlaunch
-
-    # system
     ack
     acpi
     alsaLib
@@ -65,6 +41,7 @@
     bash
     curl
     conkeror
+    chromium
     dmenu
     dzen2
     emacs
@@ -80,29 +57,39 @@
     htop
     execline
     irssi
+    weechat
     wget
-    nodejs
     nix-repl
     openssl
     powertop
-    pidgin
     python
-    skype4pidgin
     ruby
-    rake
     silver-searcher
-    terminator
+    termite
     tree
     tmux
-    wpa_supplicant_gui
-    xdg_utils
-    xlibs.xev
-    xlibs.xset
-    xlibs.xmodmap
-    xclip
-    linuxPackages_3_17.cpupower
+    linuxPackages.cpupower
     unzip
   ];
+
+  users = {
+    mutableUsers = true;
+    extraUsers.dejanr = {
+      description = "Dejan Ranisavljevic";
+      name = "dejanr";
+      group = "users";
+      extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
+      shell = "/run/current-system/sw/bin/bash";
+      home = "/home/dejanr";
+      createHome = true;
+    };
+  };
+
+  users.extraGroups.docker.members = [ "dejanr" ];
+
+  hardware = {
+    pulseaudio.enable = true;
+  };
 
   services = {
     openssh = {
@@ -116,13 +103,6 @@
       enable = true;
       videoDrivers = [ "intel" ];
       driSupport = true;
-
-      desktopManager.default = "none";
-      desktopManager.xterm.enable = false;
-      desktopManager.xfce.enable = false;
-
-      windowManager.stumpwm.enable = true;
-      windowManager.default = "stumpwm";
 
       useGlamor = true;
 
@@ -158,10 +138,6 @@
         vertEdgeScroll = false;
       };
 
-      screenSection = ''
-        Option "DPI" "96 x 96"
-      '';
-
       multitouch.enable = true;
       multitouch.ignorePalm = true;
       multitouch.invertScroll = true;
@@ -174,29 +150,4 @@
     upower.enable = true;
     nixosManual.showManual = true;
   };
-
-  security.setuidPrograms = [ "xlaunch" ];
-
-  users = {
-    mutableUsers = true;
-    extraUsers.dejanr = {
-      description = "Dejan Ranisavljevic";
-      name = "dejanr";
-      group = "users";
-      extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
-      shell = "/run/current-system/sw/bin/bash";
-      home = "/home/dejanr";
-      createHome = true;
-    };
-  };
-
-  users.extraGroups.docker.members = [ "dejanr" ];
-
-  networking = {
-    hostName = "mbp";
-    nameservers = [ "8.8.8.8" "8.8.4.4" ];
-    wireless.enable = true;
-  };
-
-  virtualisation.docker.enable = true;
 }
