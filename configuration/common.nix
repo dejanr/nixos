@@ -47,9 +47,11 @@
     emacs
     file
     firefox
+    feh
     mutt
+    mplayer
     nodejs
-    vimHugeX
+    vim
     git
     gitFull
     gitAndTools.git-extras
@@ -66,10 +68,13 @@
     ruby
     silver-searcher
     termite
+    gnome3.vte
     tree
     tmux
     linuxPackages.cpupower
     unzip
+    zathura
+    xdg_utils
   ];
 
   users = {
@@ -86,10 +91,7 @@
   };
 
   users.extraGroups.docker.members = [ "dejanr" ];
-
-  hardware = {
-    pulseaudio.enable = true;
-  };
+  users.extraGroups.vboxusers.members = [ "dejanr" ];
 
   services = {
     openssh = {
@@ -101,9 +103,7 @@
 
     xserver = {
       enable = true;
-      videoDrivers = [ "intel" ];
       driSupport = true;
-
       useGlamor = true;
 
       displayManager = {
@@ -114,9 +114,6 @@
         desktopManagerHandlesLidAndPower = false;
 
         sessionCommands = ''
-          xrdb -merge ~/.Xdefaults;
-          xsetroot -solid dark;
-          xmodmap ~/.Xmodmap
           xsetroot -cursor_name left_ptr;
           xsetroot general;
         '';
@@ -142,12 +139,14 @@
       multitouch.ignorePalm = true;
       multitouch.invertScroll = true;
 
-      vaapiDrivers = [ pkgs.vaapiIntel ];
-
       xkbOptions = "terminate:ctrl_alt_bksp, ctrl:nocaps";
     };
 
     upower.enable = true;
     nixosManual.showManual = true;
+
+    # synchronize time using chrony
+    ntp.enable = false;
+    chrony.enable = true;
   };
 }

@@ -26,4 +26,11 @@
     nameservers = [ "8.8.8.8" "8.8.4.4" ];
     wireless.enable = true;
   };
+
+  services = {
+    xserver = {
+      videoDrivers = [ "nvidia" ];
+      vaapiDrivers = [ pkgs.vaapiIntel ];
+    };
+  };
 }
