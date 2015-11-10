@@ -20,7 +20,7 @@
     supportedFilesystems = [ "zfs" ];
     loader.grub.enable = true;
     loader.grub.version = 2;
-    loader.grub.devices = [ "/dev/sda" ];
+    loader.grub.devices = [ "/dev/sdd" ];
   };
 
   fileSystems = [
@@ -31,7 +31,7 @@
     }
     {
       mountPoint = "/boot";
-      device = "/dev/sda1";
+      device = "/dev/sdd1";
       fsType = "ext3";
     }
   ];
