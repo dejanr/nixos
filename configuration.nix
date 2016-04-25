@@ -5,6 +5,6 @@
 {
   imports =
     [
-      /home/dejanr/.nixos/workstation.nix
+      ./workstation.nix
     ];
 }

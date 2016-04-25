@@ -21,10 +21,6 @@
 
   nixpkgs.config = {
     allowUnfree = true;
-    chromium = {
-      enablePepperPDF = true;
-      enableWideVine = true;
-    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -46,7 +42,6 @@
     dzen2
     emacs
     file
-    firefox
     feh
     mutt
     mplayer
@@ -73,7 +68,6 @@
     tmux
     linuxPackages.cpupower
     unzip
-    zathura
     xdg_utils
   ];
 
@@ -110,8 +104,6 @@
         slim.enable = true;
         slim.defaultUser = "dejanr";
         slim.autoLogin = true;
-
-        desktopManagerHandlesLidAndPower = false;
 
         sessionCommands = ''
           xsetroot -cursor_name left_ptr;

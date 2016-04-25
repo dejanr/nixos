@@ -20,19 +20,24 @@
     supportedFilesystems = [ "zfs" ];
     loader.grub.enable = true;
     loader.grub.version = 2;
-    loader.grub.devices = [ "/dev/sdd" ];
+    loader.grub.devices = [ "/dev/sda" "/dev/sdb" ];
   };
 
   fileSystems = [
     {
       mountPoint = "/";
-      device = "rpool/root/nixos";
+      device = "tank/root/nixos";
       fsType = "zfs";
     }
     {
+      mountPoint = "/home";
+      device = "tank/home";
+      fsType = "zfs";
+    }   
+    {
       mountPoint = "/boot";
-      device = "/dev/sdd1";
-      fsType = "ext3";
+      device = "/dev/md127";
+      fsType = "ext4";
     }
   ];
 
