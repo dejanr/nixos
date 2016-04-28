@@ -4,12 +4,12 @@
   imports =
     [
       ./configuration/common.nix
-      ./configuration/xmonad.nix
+      ./configuration/i3.nix
       ./configuration/virtualization.nix
     ];
 
   boot = {
-    initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usbhid" "usb_storage" ];
+    initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
     kernelModules = [ "kvm-intel" ];
     blacklistedKernelModules = [ "snd_pcsp" ];
     extraModulePackages = [ ];
@@ -18,28 +18,25 @@
     '';
 
     supportedFilesystems = [ "zfs" ];
-    loader.grub.enable = true;
-    loader.grub.version = 2;
-    loader.grub.devices = [ "/dev/sda" "/dev/sdb" ];
+
+    loader.gummiboot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
   };
 
-  fileSystems = [
-    {
-      mountPoint = "/";
-      device = "tank/root/nixos";
+  fileSystems."/" =
+    { device = "tank/root/nixos";
       fsType = "zfs";
-    }
-    {
-      mountPoint = "/home";
-      device = "tank/home";
+    };
+
+  fileSystems."/home" =
+    { device = "tank/home";
       fsType = "zfs";
-    }   
-    {
-      mountPoint = "/boot";
-      device = "/dev/md127";
-      fsType = "ext4";
-    }
-  ];
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/sda1";
+      fsType = "vfat";
+    };
 
   networking = {
     hostId = "8e27eca5";
@@ -56,4 +53,10 @@
   hardware = {
     pulseaudio.enable = true;
   };
+
+  swapDevices = [ ];
+
+  nix.maxJobs = 8;
+
+  system.stateVersion = "16.09";
 }
