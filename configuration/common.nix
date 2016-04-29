@@ -43,6 +43,7 @@
     emacs
     file
     feh
+    haskellPackages.gitHUD
     mutt
     mplayer
     nodejs
