@@ -4,6 +4,7 @@
   imports =
     [
       ./configuration/common.nix
+      ./configuration/i3.nix
     ];
 
   boot = {
@@ -35,20 +36,6 @@
     cleanTmpDir = true;
   };
 
-  networking = {
-    hostName = "laptop";
-    hostId = "8425e349";
-    nameservers = [ "8.8.8.8" "8.8.4.4" ];
-    wireless.enable = true;
-  };
-
-  services = {
-    xserver = {
-      videoDrivers = [ "nvidia" ];
-      vaapiDrivers = [ pkgs.vaapiIntel ];
-    };
-  };
-
   fileSystems."/" =
     { device = "tank/root/nixos";
       fsType = "zfs";
@@ -59,7 +46,23 @@
       fsType = "vfat";
     };
 
+  networking = {
+    hostName = "laptop";
+    hostId = "8425e349";
+    nameservers = [ "8.8.8.8" "8.8.4.4" ];
+    wireless.enable = true;
+  };
+
+  services = {
+    xserver = {
+      videoDrivers = [ "intel" ];
+      vaapiDrivers = [ pkgs.vaapiIntel ];
+    };
+  };
+
   swapDevices = [ ];
 
   nix.maxJobs = 4;
+
+  system.stateVersion = "16.09";
 }
