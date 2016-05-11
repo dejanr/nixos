@@ -1,1 +1,1 @@
-./laptop.nix
+/etc/nixos/workstation.nix

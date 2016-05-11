@@ -102,7 +102,24 @@
       permitRootLogin = "yes";
     };
 
-    acpid.enable = true;
+    logind.extraConfig = ''
+      HandlePowerKey=ignore
+      HandleSuspendKey=ignore
+      HandleHibernateKey=ignore
+      HandleLidSwitch=ignore
+    '';
+
+    acpid = {
+      enable = true;
+
+      powerEventCommands = ''
+        systemctl suspend
+      '';
+
+      lidEventCommands = ''
+        systemctl hibernate
+      '';
+    };
 
     xserver = {
       enable = true;
@@ -152,5 +169,10 @@
 
     locate.enable = true;
     mpd.enable = true;
+  };
+
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = "powersave";
   };
 }
