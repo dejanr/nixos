@@ -60,7 +60,7 @@
     };
   };
 
-  programs.light = true;
+  programs.light.enable = true;
 
   swapDevices = [ ];
   nix.maxJobs = 4;
