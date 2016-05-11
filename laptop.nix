@@ -59,6 +59,16 @@
       vaapiDrivers = [ pkgs.vaapiIntel ];
       displayManager.xserverArgs = [ "-dpi 192" ];
     };
+
+    acpid = {
+      acEventCommands = ''
+        if [ `cat /sys/class/power_supply/ADP1/online` -eq 0 ]; then
+
+        else
+
+        fi
+      '';
+    };
   };
 
   programs.light.enable = true;
