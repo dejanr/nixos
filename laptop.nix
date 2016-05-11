@@ -49,9 +49,9 @@
   networking = {
     hostName = "laptop";
     hostId = "8425e349";
-    nameservers = [ "8.8.8.8" "8.8.4.4" ];
-    wireless.enable = true;
   };
+
+  hardware.bluetooth.enable = false;
 
   services = {
     xserver = {
@@ -60,8 +60,9 @@
     };
   };
 
-  swapDevices = [ ];
+  programs.light = true;
 
+  swapDevices = [ ];
   nix.maxJobs = 4;
 
   system.stateVersion = "16.09";

@@ -8,6 +8,8 @@
     enableFontDir = true;
 
     fonts = with pkgs; [
+      corefonts
+      bakoma_ttf
       inconsolata
       ubuntu_font_family
       dejavu_fonts
@@ -70,6 +72,7 @@
     linuxPackages.cpupower
     unzip
     xdg_utils
+    xsettingsd
   ];
 
   users = {
@@ -87,6 +90,11 @@
 
   users.extraGroups.docker.members = [ "dejanr" ];
   users.extraGroups.vboxusers.members = [ "dejanr" ];
+
+  networking = {
+    nameservers = [ "8.8.8.8" "8.8.4.4" ];
+    networkmanager.enable = true;
+  };
 
   services = {
     openssh = {
@@ -141,5 +149,8 @@
     # synchronize time using chrony
     ntp.enable = false;
     chrony.enable = true;
+
+    locate.enable = true;
+    mpd.enable = true;
   };
 }

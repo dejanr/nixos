@@ -41,7 +41,6 @@
   networking = {
     hostId = "8e27eca5";
     hostName = "workstation";
-    nameservers = [ "8.8.8.8" "8.8.4.4" ];
   };
 
   services = {
