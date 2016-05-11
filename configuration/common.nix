@@ -106,7 +106,6 @@
       HandlePowerKey=ignore
       HandleSuspendKey=ignore
       HandleHibernateKey=ignore
-      HandleLidSwitch=ignore
     '';
 
     acpid = {

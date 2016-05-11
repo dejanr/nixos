@@ -57,6 +57,7 @@
     xserver = {
       videoDrivers = [ "intel" ];
       vaapiDrivers = [ pkgs.vaapiIntel ];
+      displayManager.xserverArgs = [ "-dpi 192" ];
     };
   };
 
