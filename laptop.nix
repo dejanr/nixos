@@ -63,9 +63,11 @@
     acpid = {
       acEventCommands = ''
         if [ `cat /sys/class/power_supply/ADP1/online` -eq 0 ]; then
-
+          /run/current-system/sw/bin/cpupower frequency-set -u 1.50GHz
+          tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor <<< powersave
         else
-
+          /run/current-system/sw/bin/cpupower frequency-set -u 3.00GHz
+          tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor <<< performance
         fi
       '';
     };
