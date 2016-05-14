@@ -2,19 +2,30 @@
 
 {
   environment.x11Packages = with pkgs; [
-    dmenu     # for app launcher
-    feh       # for background image
-    i3lock    # screen lock
-    i3status  # sys info
-    scrot     # for screenshot
-    
+    rofi         # for app launcher
+    feh          # for background image
+    i3lock       # screen lock
+    i3blocks     # sys info
+    scrot        # screenshot
+
     # xorg.utilmacros
     # xorg.xcursorgen
     # xorg.xcursorthemes
   ];
- 
+
+  environment.systemPackages = with pkgs; [
+    xscreensaver # screensaver
+    xss-lock # screensaver
+    xfce.thunar # file amanger
+    xfce.thunar_volman
+    xfce.thunar-archive-plugin
+    gnome.gnome_icon_theme
+    lxappearance # configure theme
+    arandr # manage dispays
+  ];
+
   hardware.opengl.driSupport32Bit = true;
- 
+
   services.xserver = {
     enable = true;
     autorun = true;
@@ -28,13 +39,13 @@
       default = "none";
       xterm.enable = false;
     };
-    
+
     displayManager = {
       slim.enable = true;
-      
+
       sessionCommands = ''
         i3status &
       '';
     };
-  };   
+  };
 }
