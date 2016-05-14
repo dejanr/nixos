@@ -46,6 +46,14 @@
   services = {
     xserver = {
       videoDrivers = [ "nvidia" ];
+      displayManager.xserverArgs = [ "-dpi 92" ];
+    };
+
+    acpid = {
+      acEventCommands = ''
+        /run/current-system/sw/bin/cpupower frequency-set -u 4.30GHz
+        tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor <<< performance
+      '';
     };
   };
 
