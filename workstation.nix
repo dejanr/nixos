@@ -6,12 +6,17 @@
       ./configuration/common.nix
       ./configuration/desktop.nix
       ./configuration/i3.nix
+      ./configuration/multimedia.nix
+      ./configuration/development.nix
       ./configuration/virtualization.nix
     ];
 
   boot = {
     initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
     kernelModules = [ "kvm-intel" ];
+    kernel.sysctl = {
+      "fs.inotify.max_user_watches" = "1048576";
+    };
     blacklistedKernelModules = [ "snd_pcsp" ];
     extraModulePackages = [ ];
     extraModprobeConfig = ''
@@ -20,8 +25,15 @@
 
     supportedFilesystems = [ "zfs" ];
 
-    loader.gummiboot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
+    loader = {
+      gummiboot.enable = true;
+      gummiboot.timeout = 2;
+      generationsDir.enable = false;
+      generationsDir.copyKernels = false;
+      efi.canTouchEfiVariables = true;
+    };
+
+    cleanTmpDir = true;
   };
 
   fileSystems."/" =
@@ -62,10 +74,6 @@
     etc."X11/Xresources".text = ''
       Xft.dpi: 92
     '';
-  };
-
-  hardware = {
-    pulseaudio.enable = true;
   };
 
   swapDevices = [ ];

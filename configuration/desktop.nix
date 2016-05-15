@@ -2,9 +2,10 @@
 
 {
   environment.systemPackages = with pkgs; [
-    ag # silver searcher, code searching tool
     arandr # manage dispays
+    chromium
     evince # gnome document viewer
+    firefox
     gnupg # encryption
     gtypist # typing practice
     inkscape # vector graphics editor
@@ -15,7 +16,6 @@
     libreoffice
     networkmanagerapplet
     pamixer # cli tools for pulseaudio
-    pavucontrol # volume control
     pinentry # gnupg interface to passphrase input
     scrot # screen capturing
     skype
@@ -41,8 +41,19 @@
     xlibs.xkill
     xlibs.xmessage
     xsel
-    xss-lock
     xsettingsd
+    xss-lock
     zip
   ];
+
+  nixpkgs.config = {
+    allowUnfree = true;
+		chromium = {
+      proprietaryCodecs = true;
+      enablePepperFlash = true;
+      enablePepperPDF = true;
+      enableWideVine = true;
+      enableNacl = true;
+    };
+  };
 }

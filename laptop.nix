@@ -6,11 +6,17 @@
       ./configuration/common.nix
       ./configuration/desktop.nix
       ./configuration/i3.nix
+      ./configuration/multimedia.nix
+      ./configuration/development.nix
+      ./configuration/virtualization.nix
     ];
 
   boot = {
     initrd.availableKernelModules = [ "xhci_hcd" "ahci" "usb_storage" "usbhid" ];
     kernelModules = [ "kvm-intel" "wl" ];
+    kernel.sysctl = {
+      "fs.inotify.max_user_watches" = "1048576";
+    };
 
     extraModulePackages = [
       config.boot.kernelPackages.broadcom_sta

@@ -1,76 +1,49 @@
 { config, pkgs, ... }:
 
 {
-  time.timeZone = "Europe/Berlin";
+  time.timeZone = "Europe/Munich";
 
   fonts = {
     enableCoreFonts = true;
     enableFontDir = true;
 
     fonts = with pkgs; [
-      corefonts
       bakoma_ttf
-      inconsolata
-      ubuntu_font_family
+      corefonts
       dejavu_fonts
+      font-awesome-ttf
+      inconsolata
       liberation_ttf
       proggyfonts
       source-sans-pro
       terminus_font
       ttf_bitstream_vera
-      font-awesome-ttf
+      ubuntu_font_family
     ];
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
+  environment.variables = {
+		GTK_PATH          = "${pkgs.xfce.gtk_xfce_engine}/lib/gtk-2.0";
+		GTK_DATA_PREFIX   = "${config.system.path}";
+		GIO_EXTRA_MODULES = "${pkgs.xfce.gvfs}/lib/gio/modules";
+		GTK_IM_MODULE     = "xim";
+		QT_IM_MODULE      = "xim";
   };
 
   environment.systemPackages = with pkgs; [
-    ack
     acpi
-    alsaLib
-    alsaUtils
-    alsaPlugins
     apg
-    autojump
     axel
-    bind
-    binutils
-    bash
-    curl
     conkeror
-    chromium
-    firefox
-    dmenu
     dzen2
-    emacs
-    file
-    feh
-    haskellPackages.gitHUD
-    mutt
-    mplayer
-    nodejs
-    vim
-    git
-    gitFull
-    gitAndTools.git-extras
-    go
-    htop
     execline
-    irssi
-    weechat
-    wget
-    nix-repl
-    openssl
-    powertop
-    python
-    ruby
-    termite
     gnome3.vte
-    tree
-    tmux
+    haskellPackages.gitHUD
     linuxPackages.cpupower
+    mutt
+    powertop
+    termite
+    weechat
   ];
 
   users = {
@@ -79,7 +52,17 @@
       description = "Dejan Ranisavljevic";
       name = "dejanr";
       group = "users";
-      extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
+      extraGroups = [
+				"lp" "kmem"
+				"wheel" "disk"
+				"audio" "video"
+				"networkmanager"
+				"systemd-journal"
+				"vboxusers" "docker"
+				"utmp" "adm" "input"
+				"tty" "floppy" "uucp"
+				"cdrom" "tape" "dialout"
+			];
       shell = "/run/current-system/sw/bin/bash";
       home = "/home/dejanr";
       createHome = true;
@@ -90,14 +73,60 @@
   users.extraGroups.vboxusers.members = [ "dejanr" ];
 
   networking = {
-    nameservers = [ "8.8.8.8" "8.8.4.4" ];
     networkmanager.enable = true;
+	  networkmanager.appendNameservers = [
+      "8.8.8.8"
+      "8.8.4.4"
+    ];
+    firewall = {
+      enable = true;
+      allowPing = false;
+      allowedTCPPorts = [ # incoming connections allowed
+        22   # ssh
+        9418 # tor
+      ];
+      allowedTCPPortRanges = [];
+      allowedUDPPorts = [];
+      allowedUDPPortRanges = [];
+      connectionTrackingModules = [];
+    };
+  };
+
+  i18n = {
+    consoleFont = "${pkgs.terminus_font}/share/consolefonts/ter-v32n.psf.gz";
+    consoleKeyMap = "us";
+    defaultLocale = "en_US.UTF-8";
   };
 
   services = {
+		printing.enable = true;
+		avahi.enable = true;
+		locate = {
+      enable = true;
+      interval = "hourly";
+      includeStore = true;
+    };
+    mpd.enable = true;
+		udisks2.enable = true;
+		fail2ban = {
+      enable = true;
+      jails = {
+        # this is predefined
+        ssh-iptables = ''
+          enabled  = true
+        '';
+      };
+    };
     openssh = {
       enable = true;
       permitRootLogin = "yes";
+			passwordAuthentication = false;
+    };
+
+    postgresql = {
+      enable = true;
+      package = pkgs.postgresql;
+      enableTCPIP = true;
     };
 
     logind.extraConfig = ''
@@ -124,8 +153,37 @@
     # synchronize time using chrony
     ntp.enable = false;
     chrony.enable = true;
+  };
 
-    locate.enable = true;
-    mpd.enable = true;
+  hardware = {
+    cpu.intel.updateMicrocode = true;
+
+    opengl.driSupport = true;
+    opengl.driSupport32Bit = true;
+
+    firmware = [
+      pkgs.firmwareLinuxNonfree
+    ];
+
+    pulseaudio = {
+      enable = true;
+      package = pkgs.pulseaudioFull;
+    };
+  };
+
+  security.sudo.wheelNeedsPassword = false;
+
+	nix = {
+    nixPath = [
+      "nixpkgs=/etc/nixos/nixpkgs"
+      "nixos=/etc/nixos/nixpkgs/nixos"
+      "nixos-config=/etc/nixos/configuration.nix"
+    ];
+    buildCores = 4;
+    extraOptions = ''
+      binary-caches-parallel-connections = 24
+      gc-keep-outputs = false
+      gc-keep-derivations = false
+    '';
   };
 }
