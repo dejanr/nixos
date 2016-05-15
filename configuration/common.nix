@@ -75,6 +75,7 @@
     unzip
     xdg_utils
     xsettingsd
+    xclip
   ];
 
   users = {
