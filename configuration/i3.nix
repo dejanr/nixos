@@ -26,6 +26,7 @@
     lxappearance # configure theme
     arandr # manage dispays
     pavucontrol # volume control
+    vanilla-dmz # cursor theme
   ];
 
   hardware.opengl.driSupport32Bit = true;

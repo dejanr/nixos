@@ -134,8 +134,10 @@
         slim.autoLogin = true;
 
         sessionCommands = ''
-          xsetroot -cursor_name left_ptr;
-          xsetroot general;
+          xsetroot -cursor_name left_ptr
+          xsetroot general
+          emacs --daemon &
+          xrdb -merge /etc/X11/Xresources
         '';
       };
 

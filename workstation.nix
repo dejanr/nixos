@@ -57,6 +57,12 @@
     };
   };
 
+  environment = {
+    etc."X11/Xresources".text = ''
+      Xft.dpi: 92
+    '';
+  };
+
   hardware = {
     pulseaudio.enable = true;
   };
