@@ -66,16 +66,11 @@
     powertop
     python
     ruby
-    silver-searcher
     termite
     gnome3.vte
     tree
     tmux
     linuxPackages.cpupower
-    unzip
-    xdg_utils
-    xsettingsd
-    xclip
   ];
 
   users = {
@@ -123,39 +118,6 @@
       '';
     };
 
-    xserver = {
-      enable = true;
-      driSupport = true;
-      useGlamor = true;
-
-      displayManager = {
-        slim.enable = true;
-        slim.defaultUser = "dejanr";
-        slim.autoLogin = true;
-
-        sessionCommands = ''
-          xsetroot -cursor_name left_ptr
-          xsetroot general
-          emacs --daemon &
-          xrdb -merge /etc/X11/Xresources
-        '';
-      };
-
-      synaptics = {
-        enable = true;
-        palmDetect = true;
-        palmMinWidth = 200;
-        fingersMap = [ 0 0 0 ];
-        horizTwoFingerScroll = true;
-      };
-
-      multitouch.enable = true;
-      multitouch.ignorePalm = true;
-      multitouch.invertScroll = true;
-
-      xkbOptions = "terminate:ctrl_alt_bksp, ctrl:nocaps";
-    };
-
     upower.enable = true;
     nixosManual.showManual = true;
 
@@ -165,10 +127,5 @@
 
     locate.enable = true;
     mpd.enable = true;
-  };
-
-  powerManagement = {
-    enable = true;
-    cpuFreqGovernor = "powersave";
   };
 }

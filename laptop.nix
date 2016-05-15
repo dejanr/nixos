@@ -4,6 +4,7 @@
   imports =
     [
       ./configuration/common.nix
+      ./configuration/desktop.nix
       ./configuration/i3.nix
     ];
 

@@ -8,9 +8,9 @@
     i3blocks     # sys info
     scrot        # screenshot
 
-    # xorg.utilmacros
-    # xorg.xcursorgen
-    # xorg.xcursorthemes
+    xorg.utilmacros
+    xorg.xcursorgen
+    xorg.xcursorthemes
   ];
 
   environment.systemPackages = with pkgs; [
@@ -24,8 +24,6 @@
     gtk-engine-murrine # arc theme
     arc-gtk-theme
     lxappearance # configure theme
-    arandr # manage dispays
-    pavucontrol # volume control
     vanilla-dmz # cursor theme
   ];
 
@@ -33,6 +31,8 @@
 
   services.xserver = {
     enable = true;
+		driSupport = true;
+		useGlamor = true;
     autorun = true;
 
     windowManager = {
@@ -48,9 +48,30 @@
     displayManager = {
       slim.enable = true;
 
-      sessionCommands = ''
-        i3status &
-      '';
+			slim.defaultUser = "dejanr";
+			slim.autoLogin = true;
+
+			sessionCommands = ''
+				xsetroot -cursor_name left_ptr
+				xsetroot general
+				emacs --daemon &
+				xrdb -merge /etc/X11/Xresources
+				xrdb -merge ~/.Xresources
+			'';
     };
+
+		synaptics = {
+			enable = true;
+			palmDetect = true;
+			palmMinWidth = 200;
+			fingersMap = [ 0 0 0 ];
+			horizTwoFingerScroll = true;
+		};
+
+		multitouch.enable = true;
+		multitouch.ignorePalm = true;
+		multitouch.invertScroll = true;
+
+		xkbOptions = "terminate:ctrl_alt_bksp, ctrl:nocaps";
   };
 }
