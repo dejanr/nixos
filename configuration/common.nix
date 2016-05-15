@@ -140,18 +140,10 @@
 
       synaptics = {
         enable = true;
-        additionalOptions = ''
-          Option "VertScrollDelta" "-100"
-          Option "HorizScrollDelta" "-100"
-          Option "PalmMinWidth" "8"
-          Option "PalmMinZ" "100"
-        '';
-        buttonsMap = [ 1 3 2 ];
-        tapButtons = false;
         palmDetect = true;
+        palmMinWidth = 200;
         fingersMap = [ 0 0 0 ];
-        twoFingerScroll = true;
-        vertEdgeScroll = false;
+        horizTwoFingerScroll = true;
       };
 
       multitouch.enable = true;
