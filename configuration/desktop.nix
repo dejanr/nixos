@@ -19,7 +19,6 @@
     pinentry # gnupg interface to passphrase input
     scrot # screen capturing
     skype
-    spotify
     tesseract # OCR engine
     transmission # bittorrent client
     unrar
@@ -50,8 +49,6 @@
     allowUnfree = true;
 		chromium = {
       proprietaryCodecs = true;
-      enablePepperFlash = true;
-      enablePepperPDF = true;
       enableWideVine = true;
       enableNacl = true;
     };
