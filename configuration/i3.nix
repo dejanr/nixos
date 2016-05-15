@@ -19,9 +19,13 @@
     xfce.thunar # file amanger
     xfce.thunar_volman
     xfce.thunar-archive-plugin
-    gnome.gnome_icon_theme
+    gnome.gnome_icon_theme # arc theme
+    gnome3.gnome_themes_standard # arc theme
+    gtk-engine-murrine # arc theme
+    arc-gtk-theme
     lxappearance # configure theme
     arandr # manage dispays
+    pavucontrol # volume control
   ];
 
   hardware.opengl.driSupport32Bit = true;

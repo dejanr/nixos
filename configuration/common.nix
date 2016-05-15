@@ -41,6 +41,7 @@
     curl
     conkeror
     chromium
+    firefox
     dmenu
     dzen2
     emacs
