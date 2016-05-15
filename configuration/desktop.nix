@@ -43,6 +43,7 @@
     xsettingsd
     xss-lock
     zip
+    qutebrowser
   ];
 
   nixpkgs.config = {
