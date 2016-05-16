@@ -30,6 +30,7 @@
     oxygen-gtk2
     oxygen-gtk3
     gnome3.adwaita-icon-theme
+    gnome3.dconf
   ];
 
   environment.shellInit = ''
@@ -65,6 +66,7 @@
 				emacs --daemon &
 				xrdb -merge /etc/X11/Xresources
 				xrdb -merge ~/.Xresources
+        ${pkgs.networkmanagerapplet}/bin/nm-applet &
 			'';
     };
 

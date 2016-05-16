@@ -21,6 +21,7 @@
     ctags
     curl
     darcs
+    dpkg
     docker
     emacs
     ettercap # Comprehensive suite for man in the middle attacks
@@ -56,6 +57,7 @@
     obs-studio # video recording and live streaming
     openssl
     pandoc # convertion between markup formats
+    patchelf
     psmisc
     python
     ranger # file manager with minimal ncurses interface

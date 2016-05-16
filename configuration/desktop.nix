@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
+let
+  credentials = import ../credentials.nix;
+in
 {
   environment.systemPackages = with pkgs; [
     arandr # manage dispays
@@ -44,7 +47,28 @@
     xss-lock
     zip
     qutebrowser
+    transmission
+    transmission_gtk
   ];
+  
+  services = {
+    transmission = { 
+      enable = true;
+      settings = {
+        incomplete-dir-enabled = false;
+        ratio-limit-enabled = true;
+        watch-dir-enabled = true;
+        ratio-limit = 2;
+        encryption = 2;
+        umask = 2;
+        speed-limit-up = 1;
+        speed-limit-up-enabled = true;
+        rpc-whitelist = "127.0.0.1,192.168.*.*";
+        rpc-username = credentials.transmission-user;
+        rpc-password = credentials.transmission-password;
+      };
+    };
+  };
 
   nixpkgs.config = {
     allowUnfree = true;
