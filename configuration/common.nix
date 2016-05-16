@@ -129,35 +129,6 @@
 			passwordAuthentication = false;
     };
     
-    openvpn.servers.torguard = {
-      config = ''
-        client
-        dev tun
-        proto udp
-        remote ro.torguardvpnaccess.com 443
-        resolv-retry infinite
-        remote-cert-tls server
-        nobind
-        tun-mtu 1500
-        tun-mtu-extra 32
-        mssfix 1450
-        ca /etc/nixos/certs/torguard.crt
-        auth-user-pass
-        comp-lzo
-        fast-io
-        ping-restart 0
-        route-delay 2
-        route-method exe
-        script-security 3 system
-        mute-replay-warnings
-        verb 3
-        dhcp-option DNS 208.67.222.222
-      '';
-      up = "${pkgs.update-resolv-conf}/libexec/openvpn/update-resolv-conf";
-      down = "${pkgs.update-resolv-conf}/libexec/openvpn/update-resolv-conf";
-      autoStart = false;
-    };
-
     postgresql = {
       enable = true;
       package = pkgs.postgresql;
