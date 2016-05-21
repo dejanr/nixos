@@ -20,6 +20,9 @@ in
     networkmanagerapplet
     pamixer # cli tools for pulseaudio
     pinentry # gnupg interface to passphrase input
+    pidgin # instant messanger
+    pidginwindowmerge # merge contacts and message window
+    skype4pidgin # use running skype inside pidgin
     scrot # screen capturing
     skype
     tesseract # OCR engine
