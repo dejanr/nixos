@@ -11,6 +11,11 @@
     xorg.utilmacros
     xorg.xcursorgen
     xorg.xcursorthemes
+    
+    dunst # notifications
+    compton # window transitions
+    
+    i3minator # i3 project manager
   ];
 
   environment.systemPackages = with pkgs; [
@@ -43,6 +48,10 @@
 		driSupport = true;
 		useGlamor = true;
     autorun = true;
+    
+    libinput = {
+      naturalScrolling = true;
+    };
 
     windowManager = {
       i3.enable = true;

@@ -13,7 +13,9 @@
 
   boot = {
     initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
-    kernelModules = [ "kvm-intel" ];
+    kernelModules = [
+      "kvm-intel" 
+    ];
     kernel.sysctl = {
       "fs.inotify.max_user_watches" = "1048576";
     };

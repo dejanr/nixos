@@ -50,6 +50,7 @@
     networkmanager_openvpn
     openvpn
     update-resolv-conf
+    pciutils # A collection of programs for inspecting and manipulating configuration of PCI devices
   ];
 
   users = {
@@ -68,6 +69,7 @@
 				"utmp" "adm" "input"
 				"tty" "floppy" "uucp"
 				"cdrom" "tape" "dialout"
+        "libvirtd"
 			];
       shell = "/run/current-system/sw/bin/bash";
       home = "/home/dejanr";
