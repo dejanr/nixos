@@ -68,7 +68,6 @@
     tmux
     tree
     usbutils
-    vim
     wget
     which
     wireshark # network protocol analyzer

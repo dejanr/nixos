@@ -130,7 +130,7 @@
       permitRootLogin = "yes";
 			passwordAuthentication = false;
     };
-    
+
     postgresql = {
       enable = true;
       package = pkgs.postgresql;

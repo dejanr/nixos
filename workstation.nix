@@ -9,12 +9,13 @@
       ./configuration/multimedia.nix
       ./configuration/development.nix
       ./configuration/virtualization.nix
+      ./configuration/vim.nix
     ];
 
   boot = {
     initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
     kernelModules = [
-      "kvm-intel" 
+      "kvm-intel"
     ];
     kernel.sysctl = {
       "fs.inotify.max_user_watches" = "1048576";
