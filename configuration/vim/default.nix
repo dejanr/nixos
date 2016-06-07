@@ -9,7 +9,6 @@ let
   vamConfig = {
     knownPlugins = pkgs.vimPlugins // plugins;
     pluginDictionaries = [ { names = [
-        "mileszs/ack.vim"
         "sensible"
         "vim-nix"
         "fugitive"

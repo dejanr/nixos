@@ -52,7 +52,7 @@
     nix-prefetch-scripts
     nix-repl
     nmap # network discovery and security audit
-    nodejs
+    nodejs-6_x
     nox # tools to make nix nicer
     obs-studio # video recording and live streaming
     openssl
