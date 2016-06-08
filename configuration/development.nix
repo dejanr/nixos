@@ -56,7 +56,6 @@
     nox # tools to make nix nicer
     obs-studio # video recording and live streaming
     openssl
-    pandoc # convertion between markup formats
     patchelf
     psmisc
     python

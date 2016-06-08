@@ -32,11 +32,11 @@
     '';
 
     loader = {
-      gummiboot.enable = true;
-      gummiboot.timeout = 2;
+      systemd-boot.enable = true;
       generationsDir.enable = false;
       generationsDir.copyKernels = false;
       efi.canTouchEfiVariables = true;
+      timeout = 2;
     };
 
     cleanTmpDir = true;

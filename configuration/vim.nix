@@ -8,8 +8,5 @@
     ctags
     silver-searcher
     fzf
-    haskellPackages.ghc-mod
-    haskellPackages.hlint
-    haskellPackages.hdevtools
   ];
 }

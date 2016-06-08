@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  environment.x11Packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     rofi         # for app launcher
     feh          # for background image
     i3lock       # screen lock
@@ -11,14 +11,12 @@
     xorg.utilmacros
     xorg.xcursorgen
     xorg.xcursorthemes
-    
+
     dunst # notifications
     compton # window transitions
-    
-    i3minator # i3 project manager
-  ];
 
-  environment.systemPackages = with pkgs; [
+    i3minator # i3 project manager
+
     xscreensaver # screensaver
     xss-lock # screensaver
     xfce.thunar # file amanger
@@ -45,10 +43,9 @@
 
   services.xserver = {
     enable = true;
-		driSupport = true;
 		useGlamor = true;
     autorun = true;
-    
+
     libinput = {
       naturalScrolling = true;
     };
