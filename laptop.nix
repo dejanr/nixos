@@ -59,11 +59,12 @@
   };
 
   hardware.bluetooth.enable = false;
-
+  hardware.opengl.extraPackages = [ pkgs.vaapiIntel ];
+  
   services = {
     xserver = {
       videoDrivers = [ "intel" ];
-      vaapiDrivers = [ pkgs.vaapiIntel ];
+
       displayManager.xserverArgs = [ "-dpi 192" ];
     };
 
