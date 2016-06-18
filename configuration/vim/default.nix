@@ -15,10 +15,6 @@ let
         "fzf"
         "fzf.vim"
         "trailing-whitespace"
-        "vimproc"
-        "ghc-mod-vim"
-        "neco-ghc"
-        "neomake"
         "nerdtree"
         ];
       }
