@@ -11,6 +11,7 @@
     autoconf
     autojump # cd command that learns
     automake
+    awscli
     bash
     bind
     binutils
@@ -71,4 +72,7 @@
     which
     wireshark # network protocol analyzer
   ];
+
+  services.postgresql.enable = true;
+  services.postgresql.authentication = "local all all ident";
 }
