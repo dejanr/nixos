@@ -4,12 +4,10 @@
   time.timeZone = "Europe/Berlin";
 
   fonts = {
-    enableCoreFonts = true;
     enableFontDir = true;
 
     fonts = with pkgs; [
       bakoma_ttf
-      corefonts
       dejavu_fonts
       font-awesome-ttf
       inconsolata

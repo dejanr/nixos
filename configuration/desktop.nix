@@ -52,10 +52,11 @@ in
     qutebrowser
     transmission
     transmission_gtk
+    slic3r
   ];
-  
+
   services = {
-    transmission = { 
+    transmission = {
       enable = true;
       settings = {
         incomplete-dir-enabled = false;

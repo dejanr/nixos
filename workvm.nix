@@ -24,6 +24,5 @@
 		./configuration/desktop.nix
 		./configuration/i3.nix
 		./configuration/development.nix
-		./configuration/vim.nix
   ];
 }

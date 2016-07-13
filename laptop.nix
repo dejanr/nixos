@@ -8,7 +8,6 @@
       ./configuration/i3.nix
       ./configuration/multimedia.nix
       ./configuration/development.nix
-      ./configuration/vim.nix
     ];
 
   boot = {
