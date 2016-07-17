@@ -102,6 +102,7 @@
     consoleFont = "${pkgs.terminus_font}/share/consolefonts/ter-v32n.psf.gz";
     consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
+    supportedLocales = [ "en_US.UTF-8/UTF-8" "de_DE.UTF-8/UTF-8" "sr_RS@latin/UTF-8" ];
   };
 
   services = {
