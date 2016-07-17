@@ -17,7 +17,9 @@ in
     keychain
     libnotify # send notifications to a notification daemon
     libreoffice
+    meshlab # Processing and editing of unstructured 3D triangular meshes
     networkmanagerapplet
+    openscad # 3D parametric model compiler
     pamixer # cli tools for pulseaudio
     pinentry # gnupg interface to passphrase input
     pidgin # instant messanger
@@ -50,9 +52,12 @@ in
     xss-lock
     zip
     qutebrowser
+    qalculate-gtk # The ultimate desktop calculator
     transmission
     transmission_gtk
     slic3r
+    printrun # 3d printing host software
+    python27Packages.youtube-dl # Command-line tool to download videos from YouTube.com and other sites
   ];
 
   services = {
