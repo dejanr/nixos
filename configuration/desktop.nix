@@ -8,6 +8,7 @@ in
     arandr # manage dispays
     chromium
     evince # gnome document viewer
+    electrum # bitcoin thin-client
     firefox
     gnupg # encryption
     gtypist # typing practice
