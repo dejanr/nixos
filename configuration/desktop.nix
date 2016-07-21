@@ -52,7 +52,6 @@ in
     xsettingsd
     xss-lock
     zip
-    qutebrowser
     qalculate-gtk # The ultimate desktop calculator
     transmission
     transmission_gtk
