@@ -15,6 +15,8 @@
     s3cmd
     s3fs
     s3ql
+    unfs3
+    s3fs
     bash
     bind
     binutils
@@ -76,7 +78,4 @@
     which
     wireshark # network protocol analyzer
   ];
-
-  services.postgresql.enable = true;
-  services.postgresql.authentication = "local all all ident";
 }

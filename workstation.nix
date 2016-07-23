@@ -9,6 +9,7 @@
       ./configuration/multimedia.nix
       ./configuration/development.nix
       ./configuration/virtualization.nix
+      ./configuration/services.nix
     ];
 
   boot = {
