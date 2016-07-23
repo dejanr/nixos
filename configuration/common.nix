@@ -35,7 +35,6 @@
     conkeror
     dzen2
     execline
-    gnome3.vte
     haskellPackages.gitHUD
     linuxPackages.cpupower
     mutt
@@ -43,7 +42,11 @@
     termite
     weechat
     steam
+    gnome3.vte
+    gnome.gnome_icon_theme
     gnome3.dconf
+    gnome3.gnome_keyring
+    gnome3.gnome_themes_standard
     networkmanagerapplet
     networkmanager_openvpn
     openvpn
@@ -160,6 +163,11 @@
     # synchronize time using chrony
     ntp.enable = false;
     chrony.enable = true;
+
+    postfix = {
+      enable = true;
+      setSendmail = true;
+    };
   };
 
   hardware = {

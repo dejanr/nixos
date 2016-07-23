@@ -23,9 +23,11 @@ in
     openscad # 3D parametric model compiler
     pamixer # cli tools for pulseaudio
     pinentry # gnupg interface to passphrase input
-    pidgin # instant messanger
+    pidgin-with-plugins
+    purple-plugin-pack
     pidginwindowmerge # merge contacts and message window
     skype4pidgin # use running skype inside pidgin
+    pidgin-skypeweb
     scrot # screen capturing
     skype
     tesseract # OCR engine
@@ -55,7 +57,9 @@ in
     qalculate-gtk # The ultimate desktop calculator
     transmission
     transmission_gtk
-    slic3r
+    thunderbird # email client
+    slic3r # G-code generator for 3D printers
+    sxiv # image viewer
     printrun # 3d printing host software
     python27Packages.youtube-dl # Command-line tool to download videos from YouTube.com and other sites
   ];
