@@ -12,6 +12,9 @@
     autojump # cd command that learns
     automake
     awscli
+    s3cmd
+    s3fs
+    s3ql
     bash
     bind
     binutils
