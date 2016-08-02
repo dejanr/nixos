@@ -9,7 +9,7 @@
       ./configuration/multimedia.nix
       ./configuration/development.nix
       ./configuration/virtualization.nix
-      ./configuration/vim.nix
+      ./configuration/services.nix
     ];
 
   boot = {
@@ -40,22 +40,18 @@
   };
 
   fileSystems."/" =
-    { device = "tank/root/nixos";
-      fsType = "zfs";
-    };
-
-  fileSystems."/home" =
-    { device = "tank/home";
+    { device = "zpool/root/nixos";
       fsType = "zfs";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/sda1";
+    { device = "/dev/disk/by-uuid/A894-E82E";
       fsType = "vfat";
     };
 
+
   networking = {
-    hostId = "8e27eca5";
+    hostId = "8425e349";
     hostName = "workstation";
   };
 

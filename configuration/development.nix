@@ -11,6 +11,12 @@
     autoconf
     autojump # cd command that learns
     automake
+    awscli
+    s3cmd
+    s3fs
+    s3ql
+    unfs3
+    s3fs
     bash
     bind
     binutils
@@ -67,6 +73,7 @@
     tmux
     tree
     usbutils
+    vim
     wget
     which
     wireshark # network protocol analyzer

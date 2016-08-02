@@ -43,7 +43,7 @@
 
   services.xserver = {
     enable = true;
-		useGlamor = true;
+    useGlamor = true;
     autorun = true;
 
     libinput = {
@@ -51,8 +51,8 @@
     };
 
     windowManager = {
-      i3.enable = true;
-      default = "i3";
+      i3-gaps.enable = true;
+      default = "i3-gaps";
     };
 
     desktopManager = {
@@ -63,15 +63,15 @@
     displayManager = {
       slim.enable = true;
 
-			slim.defaultUser = "dejanr";
-			slim.autoLogin = true;
+	slim.defaultUser = "dejanr";
+	slim.autoLogin = true;
 
-			sessionCommands = ''
-				xsetroot -cursor_name left_ptr
-				xsetroot general
-				emacs --daemon &
-				xrdb -merge /etc/X11/Xresources
-				xrdb -merge ~/.Xresources
+	sessionCommands = ''
+		xsetroot -cursor_name left_ptr
+		xsetroot general
+		emacs --daemon &
+		xrdb -merge /etc/X11/Xresources
+		xrdb -merge ~/.Xresources
         ${pkgs.networkmanagerapplet}/bin/nm-applet &
 			'';
     };

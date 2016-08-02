@@ -4,12 +4,10 @@
   time.timeZone = "Europe/Berlin";
 
   fonts = {
-    enableCoreFonts = true;
     enableFontDir = true;
 
     fonts = with pkgs; [
       bakoma_ttf
-      corefonts
       dejavu_fonts
       font-awesome-ttf
       inconsolata
@@ -37,7 +35,6 @@
     conkeror
     dzen2
     execline
-    gnome3.vte
     haskellPackages.gitHUD
     linuxPackages.cpupower
     mutt
@@ -45,7 +42,11 @@
     termite
     weechat
     steam
+    gnome3.vte
+    gnome.gnome_icon_theme
     gnome3.dconf
+    gnome3.gnome_keyring
+    gnome3.gnome_themes_standard
     networkmanagerapplet
     networkmanager_openvpn
     openvpn
@@ -104,63 +105,7 @@
     consoleFont = "${pkgs.terminus_font}/share/consolefonts/ter-v32n.psf.gz";
     consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
-  };
-
-  services = {
-		printing.enable = true;
-		avahi.enable = true;
-		locate = {
-      enable = true;
-      interval = "hourly";
-      includeStore = true;
-    };
-    mpd.enable = true;
-		udisks2.enable = true;
-		fail2ban = {
-      enable = true;
-      jails = {
-        # this is predefined
-        ssh-iptables = ''
-          enabled  = true
-        '';
-      };
-    };
-    openssh = {
-      enable = true;
-      permitRootLogin = "yes";
-			passwordAuthentication = false;
-    };
-
-    postgresql = {
-      enable = true;
-      package = pkgs.postgresql;
-      enableTCPIP = true;
-    };
-
-    logind.extraConfig = ''
-      HandlePowerKey=ignore
-      HandleSuspendKey=ignore
-      HandleHibernateKey=ignore
-    '';
-
-    acpid = {
-      enable = true;
-
-      powerEventCommands = ''
-        systemctl suspend
-      '';
-
-      lidEventCommands = ''
-        systemctl hibernate
-      '';
-    };
-
-    upower.enable = true;
-    nixosManual.showManual = true;
-
-    # synchronize time using chrony
-    ntp.enable = false;
-    chrony.enable = true;
+    supportedLocales = [ "en_US.UTF-8/UTF-8" "de_DE.UTF-8/UTF-8" "sr_RS@latin/UTF-8" ];
   };
 
   hardware = {
