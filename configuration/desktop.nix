@@ -10,8 +10,10 @@ in
     evince # gnome document viewer
     electrum # bitcoin thin-client
     firefox
+    freecad # General purpose Open Source 3D CAD/MCAD/CAx/CAE/PLM modeler
     gnupg # encryption
     gtypist # typing practice
+    google-drive-ocamlfuse # FUSE-based file system backed by Google Drive
     inkscape # vector graphics editor
     kde4.calligra # suite of producitivity applications
     keepassx2 # password managment

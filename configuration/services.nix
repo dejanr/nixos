@@ -64,6 +64,10 @@
       setSendmail = true;
     };
 
+    redis = {
+      enable = true;
+    };
+
     postgresql = {
       enable = true;
       authentication = "local all all trust";
