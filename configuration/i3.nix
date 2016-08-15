@@ -3,8 +3,9 @@
 {
   environment.systemPackages = with pkgs; [
     rofi         # for app launcher
+    rofi-menugen # Generates menu based applications using rofi
     feh          # for background image
-    i3lock       # screen lock
+    i3lock-fancy # screen lock
     i3blocks     # sys info
     scrot        # screenshot
 
