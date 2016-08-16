@@ -14,6 +14,7 @@ in
     gnupg # encryption
     gtypist # typing practice
     google-drive-ocamlfuse # FUSE-based file system backed by Google Drive
+    hfsprogs # HFS user space utils, for mounting HFS+ osx partitions
     inkscape # vector graphics editor
     kde4.calligra # suite of producitivity applications
     keepassx2 # password managment

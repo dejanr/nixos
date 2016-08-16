@@ -60,12 +60,12 @@
 
   hardware.bluetooth.enable = false;
   hardware.opengl.extraPackages = [ pkgs.vaapiIntel ];
-  
+
   services = {
     xserver = {
       videoDrivers = [ "intel" ];
 
-      displayManager.xserverArgs = [ "-dpi 192" ];
+      displayManager.xserverArgs = [ "-dpi 227" ];
     };
 
     acpid = {
