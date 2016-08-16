@@ -58,13 +58,15 @@ in
     xss-lock
     zip
     qalculate-gtk # The ultimate desktop calculator
+    polkit # A dbus session bus service that is used to bring up authentication dialogs
     transmission
     transmission_gtk
     thunderbird # email client
+    pythonPackages.udiskie # Removable disk automounter for udisks
     slic3r # G-code generator for 3D printers
     sxiv # image viewer
     printrun # 3d printing host software
-    python27Packages.youtube-dl # Command-line tool to download videos from YouTube.com and other sites
+    pythonPackages.youtube-dl # Command-line tool to download videos from YouTube.com and other sites
   ];
 
   services = {
@@ -88,10 +90,8 @@ in
 
   nixpkgs.config = {
     allowUnfree = true;
-		chromium = {
-      proprietaryCodecs = true;
-      enableWideVine = true;
-      enableNacl = true;
+    nixpkgs.config.packageOverrides = pkgs: {
+      inherit (import ./packages { inherit pkgs; }) custom;
     };
   };
 }

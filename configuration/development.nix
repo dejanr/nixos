@@ -34,6 +34,7 @@
     file # show file type
     fish
     gcc
+    graphicsmagick # Swiss army knife of image processing
     gdb
     gforth
     git
