@@ -39,11 +39,13 @@
     gforth
     git
     gitAndTools.git-extras
+    gitAndTools.gitflow
     gitFull
     gnumake
     go
     gparted
     htop
+    heroku
     iftop
     imagemagickBig
     iotop
@@ -59,7 +61,7 @@
     nix-prefetch-scripts
     nix-repl
     nmap # network discovery and security audit
-    nodejs-6_x
+    nodejs
     nox # tools to make nix nicer
     obs-studio # video recording and live streaming
     openssl
