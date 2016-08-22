@@ -65,7 +65,6 @@
       slim.enable = true;
 
 	slim.defaultUser = "dejanr";
-	slim.autoLogin = true;
 
 	sessionCommands = ''
 		xsetroot -cursor_name left_ptr
