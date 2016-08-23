@@ -62,18 +62,24 @@
     };
 
     displayManager = {
-      slim.enable = true;
+      slim = {
+        enable = true;
+        defaultUser = "dejanr";
+        theme = pkgs.fetchurl {
+          url = "https://github.com/edwtjo/nixos-black-theme/archive/v1.0.tar.gz";
+          sha256 = "13bm7k3p6k7yq47nba08bn48cfv536k4ipnwwp1q1l2ydlp85r9d";
+        };
+      };
 
-	slim.defaultUser = "dejanr";
-
-	sessionCommands = ''
-		xsetroot -cursor_name left_ptr
-		xsetroot general
-		emacs --daemon &
-		xrdb -merge /etc/X11/Xresources
-		xrdb -merge ~/.Xresources
+      sessionCommands = ''
+        xsetroot -cursor_name left_ptr
+        xsetroot general
+        emacs --daemon &
+        xrdb -merge /etc/X11/Xresources
+        xrdb -merge ~/.Xresources
+        xautolock -time 15 -locker slimlock &
         ${pkgs.networkmanagerapplet}/bin/nm-applet &
-			'';
+      '';
     };
 
 		synaptics = {
