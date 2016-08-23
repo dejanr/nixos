@@ -55,11 +55,10 @@ in
     xlibs.xmessage
     xsel
     xsettingsd
-    xss-lock
     zip
     qalculate-gtk # The ultimate desktop calculator
     polkit # A dbus session bus service that is used to bring up authentication dialogs
-    pcmanfm # File manager witth GTK+ interfacetransmission
+    pcmanfm # File manager witth GTK+ interface
     transmission_gtk
     thunderbird # email client
     pythonPackages.udiskie # Removable disk automounter for udisks

@@ -5,13 +5,15 @@
     rofi         # for app launcher
     rofi-menugen # Generates menu based applications using rofi
     feh          # for background image
-    i3lock-fancy # screen lock
     i3blocks     # sys info
     scrot        # screenshot
+    xautolock    # suckless xautolock
 
     xorg.utilmacros
     xorg.xcursorgen
     xorg.xcursorthemes
+    xorg.xrdb
+    xorg.xsetroot
 
     dunst # notifications
     compton # window transitions
@@ -62,19 +64,23 @@
     };
 
     displayManager = {
-      slim.enable = true;
+      slim = {
+        enable = true;
+        defaultUser = "dejanr";
+        theme = pkgs.fetchurl {
+          url = "https://github.com/edwtjo/nixos-black-theme/archive/v1.0.tar.gz";
+          sha256 = "13bm7k3p6k7yq47nba08bn48cfv536k4ipnwwp1q1l2ydlp85r9d";
+        };
+      };
 
-	slim.defaultUser = "dejanr";
-	slim.autoLogin = true;
-
-	sessionCommands = ''
-		xsetroot -cursor_name left_ptr
-		xsetroot general
-		emacs --daemon &
-		xrdb -merge /etc/X11/Xresources
-		xrdb -merge ~/.Xresources
+      sessionCommands = ''
+        ${pkgs.xorg.xsetroot}/bin/xsetroot -cursor_name left_ptr
+        ${pkgs.xorg.xrdb}/bin/xrdb -merge ~/.Xresources
+        ${pkgs.xorg.xrdb}/bin/xrdb -merge /etc/X11/Xresources
+        ${pkgs.feh}/bin/feh --randomize --bg-fill /etc/nixos/wallpapers/* &
         ${pkgs.networkmanagerapplet}/bin/nm-applet &
-			'';
+        ${pkgs.emacs}/bin/emacs --daemon &
+      '';
     };
 
 		synaptics = {
