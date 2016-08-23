@@ -12,6 +12,8 @@
     xorg.utilmacros
     xorg.xcursorgen
     xorg.xcursorthemes
+    xorg.xrdb
+    xorg.xsetroot
 
     dunst # notifications
     compton # window transitions
@@ -72,13 +74,13 @@
       };
 
       sessionCommands = ''
-        xsetroot -cursor_name left_ptr
-        xsetroot general
-        emacs --daemon &
-        xrdb -merge /etc/X11/Xresources
-        xrdb -merge ~/.Xresources
-        xautolock -time 15 -locker slimlock &
+        ${pkgs.xorg.xsetroot}/bin/xsetroot -cursor_name left_ptr
+        ${pkgs.xorg.xsetroot}/bin/xsetroot general
+        ${pkgs.xorg.xrdb}/bin/xrdb -merge ~/.Xresources
+        ${pkgs.xorg.xrdb}/bin/xrdb -merge /etc/X11/Xresources
+        ${pkgs.feh}/bin/feh --randomize --bg-fill /etc/nixos/wallpapers/* &
         ${pkgs.networkmanagerapplet}/bin/nm-applet &
+        ${pkgs.emacs}/bin/emacs --daemon &
       '';
     };
 
