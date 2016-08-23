@@ -75,7 +75,6 @@
 
       sessionCommands = ''
         ${pkgs.xorg.xsetroot}/bin/xsetroot -cursor_name left_ptr
-        ${pkgs.xorg.xsetroot}/bin/xsetroot general
         ${pkgs.xorg.xrdb}/bin/xrdb -merge ~/.Xresources
         ${pkgs.xorg.xrdb}/bin/xrdb -merge /etc/X11/Xresources
         ${pkgs.feh}/bin/feh --randomize --bg-fill /etc/nixos/wallpapers/* &
