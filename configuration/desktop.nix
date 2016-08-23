@@ -55,7 +55,6 @@ in
     xlibs.xmessage
     xsel
     xsettingsd
-    xss-lock
     zip
     qalculate-gtk # The ultimate desktop calculator
     polkit # A dbus session bus service that is used to bring up authentication dialogs
