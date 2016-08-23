@@ -40,15 +40,19 @@
   };
 
   fileSystems."/" =
-    { device = "zpool/root/nixos";
+    { device = "tank/root/nixos";
       fsType = "zfs";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/A894-E82E";
+    { device = "/dev/disk/by-uuid/7D37-67FC";
       fsType = "vfat";
     };
 
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/bb30bf03-714a-4619-b636-e61624499f85"; }
+      { device = "/dev/disk/by-uuid/09942397-5a09-45d0-b871-97a41df98d77"; }
+    ];
 
   networking = {
     hostId = "8425e349";
@@ -74,8 +78,6 @@
       Xft.dpi: 92
     '';
   };
-
-  swapDevices = [ ];
 
   nix.maxJobs = 8;
 
