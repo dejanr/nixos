@@ -93,6 +93,9 @@
 
   programs.light.enable = true;
 
+  virtualisation.docker.enable = true;
+  virtualisation.docker.storageDriver = "zfs";
+
   swapDevices = [ ];
   nix.maxJobs = 4;
 
