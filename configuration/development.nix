@@ -29,6 +29,7 @@
     darcs
     dpkg
     docker
+    pythonPackages.docker_compose
     emacs
     ettercap # Comprehensive suite for man in the middle attacks
     file # show file type
