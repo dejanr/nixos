@@ -7,13 +7,14 @@ in
   environment.systemPackages = with pkgs; [
     arandr # manage dispays
     chromium
-    evince # gnome document viewer
+    cura
     electrum # bitcoin thin-client
+    evince # gnome document viewer
     firefox
     freecad # General purpose Open Source 3D CAD/MCAD/CAx/CAE/PLM modeler
     gnupg # encryption
-    gtypist # typing practice
     google-drive-ocamlfuse # FUSE-based file system backed by Google Drive
+    gtypist # typing practice
     hfsprogs # HFS user space utils, for mounting HFS+ osx partitions
     inkscape # vector graphics editor
     kde4.calligra # suite of producitivity applications
@@ -25,18 +26,29 @@ in
     networkmanagerapplet
     openscad # 3D parametric model compiler
     pamixer # cli tools for pulseaudio
-    pinentry # gnupg interface to passphrase input
-    pidgin-with-plugins
-    purple-plugin-pack
-    pidginwindowmerge # merge contacts and message window
-    skype4pidgin # use running skype inside pidgin
+    pcmanfm # File manager witth GTK+ interface
     pidgin-skypeweb
+    pidgin-with-plugins
+    pidginwindowmerge # merge contacts and message window
+    pinentry # gnupg interface to passphrase input
+    polkit # A dbus session bus service that is used to bring up authentication dialogs
+    printrun # 3d printing host software
+    purple-plugin-pack
+    pythonPackages.udiskie # Removable disk automounter for udisks
+    pythonPackages.youtube-dl # Command-line tool to download videos from YouTube.com and other sites
+    qalculate-gtk # The ultimate desktop calculator
     scrot # screen capturing
     skype
+    skype4pidgin # use running skype inside pidgin
+    slic3r # G-code generator for 3D printers
+    sxiv # image viewer
     tesseract # OCR engine
+    thunderbird # email client
     transmission # bittorrent client
+    transmission_gtk
     unrar
     unzip
+    utox # im client for tox.chat
     xarchiver
     xclip # clipboard
     xdg_utils # Set of cli tools that assist applications integration
@@ -53,19 +65,10 @@ in
     xlibs.xev
     xlibs.xkill
     xlibs.xmessage
+    xpdf
     xsel
     xsettingsd
     zip
-    qalculate-gtk # The ultimate desktop calculator
-    polkit # A dbus session bus service that is used to bring up authentication dialogs
-    pcmanfm # File manager witth GTK+ interface
-    transmission_gtk
-    thunderbird # email client
-    pythonPackages.udiskie # Removable disk automounter for udisks
-    slic3r # G-code generator for 3D printers
-    sxiv # image viewer
-    printrun # 3d printing host software
-    pythonPackages.youtube-dl # Command-line tool to download videos from YouTube.com and other sites
   ];
 
   services = {
