@@ -7,6 +7,7 @@ in
   environment.systemPackages = with pkgs; [
     arandr # manage dispays
     chromium
+    google-chrome
     evince # gnome document viewer
     electrum # bitcoin thin-client
     firefox
