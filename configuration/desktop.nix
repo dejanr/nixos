@@ -14,6 +14,7 @@ in
     freecad # General purpose Open Source 3D CAD/MCAD/CAx/CAE/PLM modeler
     gnupg # encryption
     google-drive-ocamlfuse # FUSE-based file system backed by Google Drive
+    google-chrome
     gtypist # typing practice
     hfsprogs # HFS user space utils, for mounting HFS+ osx partitions
     inkscape # vector graphics editor
