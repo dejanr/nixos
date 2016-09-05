@@ -64,6 +64,7 @@
     nmap # network discovery and security audit
     nodejs
     nox # tools to make nix nicer
+    nvim # vim
     obs-studio # video recording and live streaming
     openssl
     patchelf
