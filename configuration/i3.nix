@@ -14,6 +14,7 @@
     xorg.xcursorthemes
     xorg.xrdb
     xorg.xsetroot
+    xorg.xbacklight
 
     dunst # notifications
     compton # window transitions
@@ -27,6 +28,7 @@
     xfce.thunar-archive-plugin
     gnome.gnome_icon_theme # arc theme
     gnome3.gnome_themes_standard # arc theme
+    gnome3.gnome_settings_daemon # makes DPI scaling, fonts and GTK settings come active.
     gtk-engine-murrine # arc theme
     arc-gtk-theme
     lxappearance # configure theme
