@@ -7,6 +7,7 @@ in
   environment.systemPackages = with pkgs; [
     arandr # manage dispays
     chromium
+    cura
     electrum # bitcoin thin-client
     evince # gnome document viewer
     firefox
@@ -49,6 +50,7 @@ in
     transmission_gtk
     unrar
     unzip
+    utox
     xarchiver
     xclip # clipboard
     xdg_utils # Set of cli tools that assist applications integration
