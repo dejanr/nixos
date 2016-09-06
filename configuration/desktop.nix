@@ -13,8 +13,8 @@ in
     firefox
     freecad # General purpose Open Source 3D CAD/MCAD/CAx/CAE/PLM modeler
     gnupg # encryption
-    google-drive-ocamlfuse # FUSE-based file system backed by Google Drive
     google-chrome
+    google-drive-ocamlfuse # FUSE-based file system backed by Google Drive
     gtypist # typing practice
     gimp # Image Manipulation Program
     hfsprogs # HFS user space utils, for mounting HFS+ osx partitions
@@ -39,18 +39,20 @@ in
     pythonPackages.udiskie # Removable disk automounter for udisks
     pythonPackages.youtube-dl # Command-line tool to download videos from YouTube.com and other sites
     qalculate-gtk # The ultimate desktop calculator
+    qutebrowser # keyboard focused browser with minimal GUI
     scrot # screen capturing
     skype
     skype4pidgin # use running skype inside pidgin
     slic3r # G-code generator for 3D printers
     sxiv # image viewer
+    surf # suckless browser
     tesseract # OCR engine
     thunderbird # email client
     transmission # bittorrent client
     transmission_gtk
     unrar
     unzip
-    utox # im client for tox.chat
+    utox
     xarchiver
     xclip # clipboard
     xdg_utils # Set of cli tools that assist applications integration
@@ -67,7 +69,6 @@ in
     xlibs.xev
     xlibs.xkill
     xlibs.xmessage
-    xpdf
     xsel
     xsettingsd
     zip
