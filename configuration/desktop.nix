@@ -16,6 +16,7 @@ in
     google-drive-ocamlfuse # FUSE-based file system backed by Google Drive
     google-chrome
     gtypist # typing practice
+    gimp # Image Manipulation Program
     hfsprogs # HFS user space utils, for mounting HFS+ osx partitions
     inkscape # vector graphics editor
     kde4.calligra # suite of producitivity applications
