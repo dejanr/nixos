@@ -44,6 +44,7 @@ in
     skype4pidgin # use running skype inside pidgin
     slic3r # G-code generator for 3D printers
     sxiv # image viewer
+    surf # suckless browser
     tesseract # OCR engine
     thunderbird # email client
     transmission # bittorrent client
