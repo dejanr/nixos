@@ -39,7 +39,6 @@ in
     pythonPackages.udiskie # Removable disk automounter for udisks
     pythonPackages.youtube-dl # Command-line tool to download videos from YouTube.com and other sites
     qalculate-gtk # The ultimate desktop calculator
-    qutebrowser # keyboard focused browser with minimal GUI
     scrot # screen capturing
     skype
     skype4pidgin # use running skype inside pidgin
