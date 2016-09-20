@@ -16,6 +16,7 @@ in
     google-chrome
     google-drive-ocamlfuse # FUSE-based file system backed by Google Drive
     gtypist # typing practice
+    gimp # Image Manipulation Program
     hfsprogs # HFS user space utils, for mounting HFS+ osx partitions
     inkscape # vector graphics editor
     kde4.calligra # suite of producitivity applications
@@ -38,7 +39,6 @@ in
     pythonPackages.udiskie # Removable disk automounter for udisks
     pythonPackages.youtube-dl # Command-line tool to download videos from YouTube.com and other sites
     qalculate-gtk # The ultimate desktop calculator
-    qutebrowser # keyboard focused browser with minimal GUI
     scrot # screen capturing
     skype
     skype4pidgin # use running skype inside pidgin

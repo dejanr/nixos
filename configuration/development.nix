@@ -58,6 +58,7 @@
     mosh # mobile shell, ssh replacement
     mr # multiple repository managment
     ncftp
+    neovim
     ngrep # network packet alalyzer
     nix-prefetch-scripts
     nix-repl
