@@ -68,6 +68,7 @@ in
     xlibs.xev
     xlibs.xkill
     xlibs.xmessage
+    xpdf # pdf viewer
     xsel
     xsettingsd
     zip
