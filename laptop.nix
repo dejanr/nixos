@@ -49,7 +49,7 @@
     };
 
   fileSystems."/boot" =
-    { device = "/dev/sda4";
+    { device = "/dev/disk/by-uuid/6AC9-40A2";
       fsType = "vfat";
     };
 
@@ -60,7 +60,7 @@
 
   hardware.bluetooth.enable = false;
   hardware.opengl.extraPackages = [ pkgs.vaapiIntel ];
-  
+
   services = {
     xserver = {
       videoDrivers = [ "intel" ];
@@ -94,7 +94,5 @@
   programs.light.enable = true;
 
   swapDevices = [ ];
-  nix.maxJobs = 4;
-
-  system.stateVersion = "16.09";
+  nix.maxJobs = lib.mkDefault 4;
 }
