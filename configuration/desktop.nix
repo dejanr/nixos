@@ -13,6 +13,7 @@ in
     firefox
     freecad # General purpose Open Source 3D CAD/MCAD/CAx/CAE/PLM modeler
     gnupg # encryption
+    google-chrome # google chrome browser
     google-drive-ocamlfuse # FUSE-based file system backed by Google Drive
     gtypist # typing practice
     gimp # Image Manipulation Program
