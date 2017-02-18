@@ -44,14 +44,11 @@
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/7D37-67FC";
+    { device = "/dev/disk/by-uuid/6554-8AFF";
       fsType = "vfat";
     };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/bb30bf03-714a-4619-b636-e61624499f85"; }
-      { device = "/dev/disk/by-uuid/09942397-5a09-45d0-b871-97a41df98d77"; }
-    ];
+  swapDevices = [ ];
 
   networking = {
     hostId = "8425e349";
