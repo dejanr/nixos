@@ -26,19 +26,20 @@
     xfce.thunar # file amanger
     xfce.thunar_volman
     xfce.thunar-archive-plugin
-    gnome.gnome_icon_theme # arc theme
+    gnome3.vte
+    gnome3.gnome_keyring
     gnome3.gnome_themes_standard # arc theme
     gnome3.gnome_settings_daemon # makes DPI scaling, fonts and GTK settings come active.
+    gnome3.dconf
+    arc-icon-theme
+    arc-theme
     gtk-engine-murrine # arc theme
-    arc-gtk-theme
     lxappearance # configure theme
     vanilla-dmz # cursor theme
     kde4.oxygen_icons
     kde4.kwin_styles
     oxygen-gtk2
     oxygen-gtk3
-    gnome3.adwaita-icon-theme
-    gnome3.dconf
   ];
 
   environment.shellInit = ''
@@ -56,8 +57,8 @@
     };
 
     windowManager = {
-      i3-gaps.enable = true;
-      default = "i3-gaps";
+      i3.enable = true;
+      default = "i3";
     };
 
     desktopManager = {

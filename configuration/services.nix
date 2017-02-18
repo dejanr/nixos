@@ -9,12 +9,6 @@
 		printing.enable = true;
 		avahi.enable = true;
 
-		locate = {
-      enable = true;
-      interval = "hourly";
-      includeStore = true;
-    };
-
     mpd.enable = true;
 		udisks2.enable = true;
 

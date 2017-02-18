@@ -42,11 +42,6 @@
     termite
     weechat
     steam
-    gnome3.vte
-    gnome.gnome_icon_theme
-    gnome3.dconf
-    gnome3.gnome_keyring
-    gnome3.gnome_themes_standard
     networkmanagerapplet
     networkmanager_openvpn
     openvpn
