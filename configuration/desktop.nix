@@ -19,7 +19,6 @@ in
     gimp # Image Manipulation Program
     hfsprogs # HFS user space utils, for mounting HFS+ osx partitions
     inkscape # vector graphics editor
-    kde4.calligra # suite of producitivity applications
     keepassx2 # password managment
     keychain
     libnotify # send notifications to a notification daemon

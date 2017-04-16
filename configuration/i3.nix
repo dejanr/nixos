@@ -36,16 +36,7 @@
     gtk-engine-murrine # arc theme
     lxappearance # configure theme
     vanilla-dmz # cursor theme
-    kde4.oxygen_icons
-    kde4.kwin_styles
-    oxygen-gtk2
-    oxygen-gtk3
   ];
-
-  environment.shellInit = ''
-    export GTK_PATH=$GTK_PATH:${pkgs.oxygen_gtk}/lib/gtk-2.0
-    export GTK2_RC_FILES=$GTK2_RC_FILES:${pkgs.oxygen_gtk}/share/themes/oxygen-gtk/gtk-2.0/gtkrc
-  '';
 
   services.xserver = {
     enable = true;
