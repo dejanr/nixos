@@ -9,6 +9,7 @@
       ./configuration/multimedia.nix
       ./configuration/development.nix
       ./configuration/services.nix
+      ./configuration/electronics.nix
     ];
 
   boot = {
