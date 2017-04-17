@@ -6,8 +6,11 @@
     rofi-menugen # Generates menu based applications using rofi
     feh          # for background image
     i3blocks     # sys info
+    i3lock       # lock session
     scrot        # screenshot
     xautolock    # suckless xautolock
+    polybar      # status bar
+    xdotool      # inspect window title
 
     xorg.utilmacros
     xorg.xcursorgen
@@ -15,6 +18,9 @@
     xorg.xrdb
     xorg.xsetroot
     xorg.xbacklight
+
+    # sounds
+    sound-theme-freedesktop
 
     dunst # notifications
     compton # window transitions
@@ -26,6 +32,7 @@
     xfce.thunar # file amanger
     xfce.thunar_volman
     xfce.thunar-archive-plugin
+    xfce.xfce4-screenshooter
     gnome3.vte
     gnome3.gnome_keyring
     gnome3.gnome_themes_standard # arc theme
