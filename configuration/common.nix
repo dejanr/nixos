@@ -66,6 +66,7 @@
 				"tty" "floppy" "uucp"
 				"cdrom" "tape" "dialout"
         "libvirtd"
+        "transmission" "plex"
 			];
       shell = "/run/current-system/sw/bin/bash";
       home = "/home/dejanr";

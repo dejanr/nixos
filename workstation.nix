@@ -10,6 +10,7 @@
       ./configuration/development.nix
       ./configuration/services.nix
       ./configuration/electronics.nix
+      ./configuration/mediaserver.nix
     ];
 
   boot = {
