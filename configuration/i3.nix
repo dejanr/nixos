@@ -51,6 +51,8 @@
     autorun = true;
 
     libinput = {
+      enable = true;
+      disableWhileTyping = true;
       naturalScrolling = true;
     };
 
@@ -83,14 +85,6 @@
         ${pkgs.emacs}/bin/emacs --daemon &
       '';
     };
-
-		synaptics = {
-			enable = true;
-			palmDetect = true;
-			palmMinWidth = 200;
-			fingersMap = [ 0 0 0 ];
-			horizTwoFingerScroll = true;
-		};
 
 		multitouch.enable = true;
 		multitouch.ignorePalm = true;

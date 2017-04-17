@@ -8,6 +8,7 @@ in
     arandr # manage dispays
     chromium
     cura
+    corebird # twitter client
     electrum # bitcoin thin-client
     evince # gnome document viewer
     firefox
