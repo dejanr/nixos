@@ -11,6 +11,7 @@
       ./configuration/services.nix
       ./configuration/electronics.nix
       ./configuration/mediaserver.nix
+      ./configuration/games.nix
     ];
 
   boot = {
