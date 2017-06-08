@@ -1,3 +1,4 @@
 result
 configuration.nix
 credentials.nix
+hardware-configuration.nix
