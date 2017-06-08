@@ -9,11 +9,11 @@
       ./configuration/multimedia.nix
       ./configuration/development.nix
       ./configuration/services.nix
-    ];
+   ];
 
   boot = {
     initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
-    kernelModules = [ "kvm-intel" "wl" ];
+    kernelModules = [ "kvm-intel" ];
     kernel.sysctl = {
       "fs.inotify.max_user_watches" = "1048576";
     };
@@ -43,15 +43,19 @@
     cleanTmpDir = true;
   };
 
+
   fileSystems."/" =
-    { device = "zpool/root/nixos";
+    { device = "tank/root/nixos";
       fsType = "zfs";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/C1FD-131B";
+    { device = "/dev/sda4";
       fsType = "vfat";
     };
+
+  swapDevices = [ 
+  ];
 
   networking = {
     hostName = "laptop";
@@ -96,7 +100,6 @@
   virtualisation.docker.enable = true;
   virtualisation.docker.storageDriver = "zfs";
 
-  swapDevices = [ ];
   nix.maxJobs = 4;
 
   system.stateVersion = "16.09";
