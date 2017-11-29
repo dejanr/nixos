@@ -46,7 +46,6 @@
     go
     gparted
     htop
-    heroku
     haskellPackages.ghc # The Glasgow Haskell Compiler
     haskellPackages.cabal-install # The command-line interface for Cabal and Hackage
     stack # The Haskell Tool Stack

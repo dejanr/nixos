@@ -24,7 +24,6 @@ in
     keychain
     libnotify # send notifications to a notification daemon
     libreoffice
-    meshlab # Processing and editing of unstructured 3D triangular meshes
     networkmanagerapplet
     openscad # 3D parametric model compiler
     pamixer # cli tools for pulseaudio
