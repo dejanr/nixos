@@ -1,18 +1,18 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./configuration/common.nix
-      ./configuration/desktop.nix
-      ./configuration/i3.nix
-      ./configuration/multimedia.nix
-      ./configuration/development.nix
-      ./configuration/services.nix
-      ./configuration/electronics.nix
-      ./configuration/mediaserver.nix
-      ./configuration/games.nix
-    ];
+  imports = [
+    ./configuration/common.nix
+    ./configuration/desktop.nix
+    ./configuration/i3.nix
+    ./configuration/multimedia.nix
+    ./configuration/development.nix
+    ./configuration/services.nix
+    ./configuration/electronics.nix
+    ./configuration/mediaserver.nix
+    ./configuration/games.nix
+  ];
+
   boot = {
     initrd.availableKernelModules = [ "ata_generic" "ehci_pci" "ahci" "mpt3sas" "isci" "xhci_pci" "firewire_ohci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
     kernelModules = [
@@ -40,15 +40,15 @@
     cleanTmpDir = true;
   };
 
-  fileSystems."/" =
-    { device = "zroot/root/nixos";
-      fsType = "zfs";
-    };
+  fileSystems."/" = {
+    device = "zroot/root/nixos";
+    fsType = "zfs";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/sda1";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/sda1";
+    fsType = "vfat";
+  };
 
   swapDevices = [ ];
 
@@ -73,5 +73,5 @@
   nix.maxJobs = lib.mkDefault 40;
   powerManagement.cpuFreqGovernor = "powersave";
 
-  system.stateVersion = "17.09"; 
+  system.stateVersion = "17.09";
 }
