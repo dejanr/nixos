@@ -1,4 +1,4 @@
 result
 configuration.nix
-credentials.nix
+secrets.nix
 hardware-configuration.nix

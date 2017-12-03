@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  credentials = import ../credentials.nix;
+  secrets = import ../secrets.nix;
 in
 {
   environment.systemPackages = with pkgs; [
@@ -24,8 +24,8 @@ in
         idle-seeding-limit-enabled = true;
         idle-seeding-limit = 0;
         rpc-whitelist = "127.0.0.1,192.168.*.*";
-        rpc-username = credentials.transmission-user;
-        rpc-password = credentials.transmission-password;
+        rpc-username = secrets.transmission.user;
+        rpc-password = secrets.transmission.password;
         trash-original-torrent-filesA = true;
         port-forwarding-enabled = true;
       };

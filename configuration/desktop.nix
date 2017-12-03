@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  credentials = import ../credentials.nix;
+  secrets = import ../secrets.nix;
 in
 {
   environment.systemPackages = with pkgs; [
