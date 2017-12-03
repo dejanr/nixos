@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    samba # The standard Windows interoperability suite of programs for Linux and Unix
+  ];
+
   fileSystems."/mnt/home" = {
     device = "backup/home";
     fsType = "zfs";
