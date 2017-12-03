@@ -32,6 +32,7 @@ in
     keychain # Keychain management tool
     libnotify # send notifications to a notification daemon
     libreoffice # Comprehensive, professional-quality productivity suite
+    lm_sensors # Tools for reading hardware sensors
     openscad # 3D parametric model compiler
     pamixer # cli tools for pulseaudio
     pcmanfm # File manager witth GTK+ interface
