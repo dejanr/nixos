@@ -33,6 +33,12 @@
     xfce.thunar_volman
     xfce.thunar-archive-plugin
     xfce.xfce4-screenshooter
+    xfce.gtk_xfce_engine # GTK+ theme engine for Xfce
+    xfce.gvfs # virtual filesystem
+    xfce.ristretto # A fast and lightweight picture-viewer for the Xfce desktop environment
+    xfce.tumbler # A D-Bus thumbnailer service
+    xfce.xfce4icontheme # Icons for Xfce
+    xfce.xfconf # 	Simple client-server configuration storage and query system for Xfce
     gnome3.vte
     gnome3.gnome_keyring
     gnome3.gnome_themes_standard # arc theme
@@ -43,6 +49,15 @@
     gtk-engine-murrine # arc theme
     lxappearance # configure theme
     vanilla-dmz # cursor theme
+
+    xlibs.libX11
+    xlibs.libXinerama
+    xlibs.xev
+    xlibs.xkill
+    xlibs.xmessage
+
+    networkmanagerapplet # NetworkManager control applet for GNOME
+    networkmanager_openvpn # NetworkManager's OpenVPN plugin
   ];
 
   services.xserver = {

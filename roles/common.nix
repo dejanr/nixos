@@ -29,24 +29,21 @@
   };
 
   environment.systemPackages = with pkgs; [
-    acpi
-    apg
-    axel
-    conkeror
-    dzen2
-    execline
-    haskellPackages.gitHUD
-    linuxPackages.cpupower
-    mutt
-    powertop
-    termite
-    weechat
-    steam
-    networkmanagerapplet
-    networkmanager_openvpn
-    openvpn
-    update-resolv-conf
-    pciutils # A collection of programs for inspecting and manipulating configuration of PCI devices
+    apg # Tools for random password generation
+    haskellPackages.gitHUD # command-line HUD for git repos
+    linuxPackages.cpupower # Tool to examine and tune power saving features
+    wget # Tool for retrieving files
+    vim # The most popular clone of the VI editor
+    rsync #	A fast incremental file transfer utility
+    unzip # An extraction utility for archives compressed in .zip format
+    zip # Compressor/archiver for creating and modifying zipfiles
+    gitAndTools.gitFull # Distributed version control system
+    htop # An interactive process viewer for Linux
+    pixz # A parallel compressor/decompressor for xz format
+    psmisc # A set of small useful utilities that use the proc filesystem (such as fuser, killall and pstree)
+    pwgen # Password generator which creates passwords which can be easily memorized by a human
+    tmux # Terminal multiplexer
+    nixops # NixOS cloud provisioning and deployment tool
   ];
 
   users = {
@@ -79,24 +76,11 @@
 
   networking = {
     networkmanager.enable = true;
+
 	  nameservers = [
-      "208.67.222.222"
-      "208.67.222.220"
+      "8.8.4.4"
+      "8.8.8.8"
     ];
-    firewall = {
-      enable = true;
-      allowPing = false;
-      allowedTCPPorts = [ # incoming connections allowed
-        22   # ssh
-        9418 # tor
-        25565 # minecraft server
-        32400 # plex
-      ];
-      allowedTCPPortRanges = [];
-      allowedUDPPorts = [];
-      allowedUDPPortRanges = [];
-      connectionTrackingModules = [];
-    };
   };
 
   i18n = {
@@ -158,16 +142,21 @@
 
 
 	nix = {
+    buildCores = 0;
     nixPath = [
       "/etc/nixos"
       "nixpkgs=/etc/nixos/nixpkgs"
       "nixos=/etc/nixos/nixpkgs/nixos"
       "nixos-config=/etc/nixos/configuration.nix"
     ];
-    buildCores = 4;
+
     extraOptions = ''
       gc-keep-outputs = false
       gc-keep-derivations = false
+    '';
+
+    extraOptions = ''
+      auto-optimise-store = true
     '';
   };
 }
