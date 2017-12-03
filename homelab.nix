@@ -41,12 +41,12 @@
   };
 
   fileSystems."/" = {
-    device = "zroot/root/nixos";
+    device = "main/nixos/root";
     fsType = "zfs";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/sda1";
+    device = "/dev/disk/by-id/ata-TS32GMTS400_C331290006-part1";
     fsType = "vfat";
   };
 

@@ -2,15 +2,15 @@
 
 {
   environment.systemPackages = with pkgs; [
-    rofi         # for app launcher
-    rofi-menugen # Generates menu based applications using rofi
-    feh          # for background image
-    i3blocks     # sys info
-    i3lock       # lock session
-    scrot        # screenshot
-    xautolock    # suckless xautolock
-    polybar      # status bar
-    xdotool      # inspect window title
+    rofi           # for app launcher
+    rofi-menugen   # Generates menu based applications using rofi
+    feh            # for background image
+    i3blocks       # sys info
+    i3lock-fancy # lock session
+    scrot          # screenshot
+    xautolock      # suckless xautolock
+    polybar        # status bar
+    xdotool        # inspect window title
 
     xorg.utilmacros
     xorg.xcursorgen
