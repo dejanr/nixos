@@ -3,17 +3,17 @@
 {
   imports =
     [
-      ./configuration/common.nix
-      ./configuration/desktop.nix
-      ./configuration/i3.nix
-      ./configuration/multimedia.nix
-      ./configuration/development.nix
-      ./configuration/services.nix
-    ];
+      ../roles/common.nix
+      ../roles/desktop.nix
+      ../roles/i3.nix
+      ../roles/multimedia.nix
+      ../roles/development.nix
+      ../roles/services.nix
+   ];
 
   boot = {
-    initrd.availableKernelModules = [ "xhci_hcd" "ahci" "usb_storage" "usbhid" ];
-    kernelModules = [ "kvm-intel" "wl" ];
+    initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+    kernelModules = [ "kvm-intel" ];
     kernel.sysctl = {
       "fs.inotify.max_user_watches" = "1048576";
     };
@@ -43,15 +43,19 @@
     cleanTmpDir = true;
   };
 
+
   fileSystems."/" =
     { device = "tank/root/nixos";
       fsType = "zfs";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/6AC9-40A2";
+    { device = "/dev/sda4";
       fsType = "vfat";
     };
+
+  swapDevices = [
+  ];
 
   networking = {
     hostName = "laptop";
@@ -65,7 +69,7 @@
     xserver = {
       videoDrivers = [ "intel" ];
 
-      displayManager.xserverArgs = [ "-dpi 192" ];
+      displayManager.xserverArgs = [ "-dpi 227" ];
     };
 
     acpid = {
@@ -93,6 +97,10 @@
 
   programs.light.enable = true;
 
-  swapDevices = [ ];
-  nix.maxJobs = lib.mkDefault 4;
+  virtualisation.docker.enable = true;
+  virtualisation.docker.storageDriver = "zfs";
+
+  nix.maxJobs = 4;
+
+  system.stateVersion = "16.09";
 }

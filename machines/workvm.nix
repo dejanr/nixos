@@ -20,9 +20,9 @@
   services.openssh.enable = true;
 
   imports = [
-		./configuration/common.nix
-		./configuration/desktop.nix
-		./configuration/i3.nix
-		./configuration/development.nix
+		../roles/common.nix
+		../roles/desktop.nix
+		../roles/i3.nix
+		../roles/development.nix
   ];
 }
