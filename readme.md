@@ -2,13 +2,14 @@ NixOS configuration for various machines.
 
 ### Structure
 
+```
 .
 ├── machines
 ├── packages
 ├── roles
 ├── scripts
 └── wallpapers
-
+```
 
 * A **machine** has one or more role
 * A **package** is derived or custom package
