@@ -77,9 +77,9 @@
       };
 
       sessionCommands = ''
-        ${pkgs.xorg.dunst}/bin/dunst &
-        ${pkgs.xorg.compton}/bin/compton --config ~/.compton.conf -b &
-        ${pkgs.xorg.xautolock}/bin/xautolock -time 15 -locker ~/.bin/lock &
+        ${pkgs.dunst}/bin/dunst &
+        ${pkgs.compton}/bin/compton --config ~/.compton.conf -b &
+        ${pkgs.xautolock}/bin/xautolock -time 15 -locker ~/.bin/lock &
         ${pkgs.xorg.xsetroot}/bin/xsetroot -cursor_name left_ptr &
         ${pkgs.xorg.xrdb}/bin/xrdb -merge ~/.Xresources &
         ${pkgs.xorg.xrdb}/bin/xrdb -merge /etc/X11/Xresources &

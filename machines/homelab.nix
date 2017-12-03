@@ -2,15 +2,15 @@
 
 {
   imports = [
-    ./configuration/common.nix
-    ./configuration/desktop.nix
-    ./configuration/i3.nix
-    ./configuration/multimedia.nix
-    ./configuration/development.nix
-    ./configuration/services.nix
-    ./configuration/electronics.nix
-    ./configuration/mediaserver.nix
-    ./configuration/games.nix
+    ../roles/common.nix
+    ../roles/desktop.nix
+    ../roles/i3.nix
+    ../roles/multimedia.nix
+    ../roles/development.nix
+    ../roles/services.nix
+    ../roles/electronics.nix
+    ../roles/mediaserver.nix
+    ../roles/games.nix
   ];
 
   boot = {
