@@ -81,6 +81,21 @@
       "8.8.4.4"
       "8.8.8.8"
     ];
+
+    firewall = {
+      enable = true;
+      allowPing = true;
+      allowedTCPPorts = [ # incoming connections allowed
+        22   # ssh
+        9418 # tor
+        25565 # minecraft server
+        32400 # plex
+      ];
+      allowedTCPPortRanges = [];
+      allowedUDPPorts = [];
+      allowedUDPPortRanges = [];
+      connectionTrackingModules = [];
+    };
   };
 
   i18n = {
@@ -142,7 +157,6 @@
 
 
 	nix = {
-    buildCores = 0;
     nixPath = [
       "/etc/nixos"
       "nixpkgs=/etc/nixos/nixpkgs"
@@ -153,9 +167,6 @@
     extraOptions = ''
       gc-keep-outputs = false
       gc-keep-derivations = false
-    '';
-
-    extraOptions = ''
       auto-optimise-store = true
     '';
   };

@@ -9,7 +9,6 @@
     ../roles/development.nix
     ../roles/services.nix
     ../roles/electronics.nix
-    ../roles/mediaserver.nix
     ../roles/games.nix
   ];
 
