@@ -3,13 +3,16 @@
 {
   imports = [
     ../roles/common.nix
+    ../roles/multimedia.nix
     ../roles/desktop.nix
     ../roles/i3.nix
-    ../roles/multimedia.nix
     ../roles/development.nix
     ../roles/services.nix
     ../roles/electronics.nix
     ../roles/games.nix
+    ../roles/nas.nix
+    ../roles/transmission.nix
+    ../roles/plex.nix
   ];
 
   boot = {

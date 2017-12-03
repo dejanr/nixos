@@ -89,7 +89,6 @@
         22   # ssh
         9418 # tor
         25565 # minecraft server
-        32400 # plex
       ];
       allowedTCPPortRanges = [];
       allowedUDPPorts = [];
