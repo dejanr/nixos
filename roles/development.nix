@@ -65,7 +65,7 @@
     nix-prefetch-scripts
     nix-repl
     nmap # network discovery and security audit
-    nodejs
+    nodejs-8_x # Event-driven I/O framework for the V8 JavaScript engine
     nox # tools to make nix nicer
     neovim # vim
     obs-studio # video recording and live streaming
