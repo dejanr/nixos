@@ -8,8 +8,41 @@
     fsType = "zfs";
   };
 
-  services.plex = {
-    enable = true;
-    dataDir = "/var/lib/plex";
+  containers.plex = {
+    autoStart = true;
+
+    bindMounts = {
+      "/var/lib/plex" = {
+        hostPath = "/var/lib/plex";
+        isReadOnly = false;
+      };
+      "/downloads" = {
+        hostPath = "/mnt/media/downloads";
+        isReadOnly = false;
+      };
+      "/movies" = {
+        hostPath = "/mnt/media/movies";
+        isReadOnly = false;
+      };
+      "/tv" = {
+        hostPath = "/mnt/media/tv";
+        isReadOnly = false;
+      };
+    };
+
+    config = {
+      boot.isContainer = true;
+
+      networking.hostName = "plex";
+      networking.firewall.enable = false;
+      networking.interfaces.eth0.useDHCP = true;
+
+      nixpkgs.config.allowUnfree = true;
+
+      services.plex = {
+        enable = true;
+        dataDir = "/var/lib/plex";
+      };
+    };
   };
 }
