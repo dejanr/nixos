@@ -43,6 +43,7 @@
     psmisc # A set of small useful utilities that use the proc filesystem (such as fuser, killall and pstree)
     pwgen # Password generator which creates passwords which can be easily memorized by a human
     tmux # Terminal multiplexer
+    bc # GNU software calculator
     nixops # NixOS cloud provisioning and deployment tool
   ];
 
