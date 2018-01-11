@@ -17,6 +17,7 @@
 
   boot = {
     initrd.availableKernelModules = [ "ata_generic" "ehci_pci" "ahci" "mpt3sas" "isci" "xhci_pci" "firewire_ohci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [
       "kvm-intel"
     ];
@@ -60,6 +61,7 @@
   };
 
   services = {
+    unifi.enable = true;
     xserver = {
       videoDrivers = [ "nvidia" ];
       displayManager.xserverArgs = [ "-dpi 92" ];
