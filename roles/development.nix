@@ -60,14 +60,12 @@
     mosh # mobile shell, ssh replacement
     mr # multiple repository managment
     ncftp
-    neovim
     ngrep # network packet alalyzer
     nix-prefetch-scripts
     nix-repl
     nmap # network discovery and security audit
     nodejs-8_x # Event-driven I/O framework for the V8 JavaScript engine
     nox # tools to make nix nicer
-    neovim # vim
     obs-studio # video recording and live streaming
     openssl
     patchelf
@@ -81,7 +79,6 @@
     tmux
     tree
     usbutils
-    vim
     wget
     which
     wireshark # network protocol analyzer
