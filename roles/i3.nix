@@ -77,8 +77,9 @@
     };
 
     desktopManager = {
-      default = "none";
+      default = "lxqt";
       xterm.enable = false;
+      lxqt.enable = true;
     };
 
     displayManager = {

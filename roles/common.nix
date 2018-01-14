@@ -21,16 +21,11 @@
   };
 
   environment.variables = {
-		GTK_PATH          = "${pkgs.xfce.gtk_xfce_engine}/lib/gtk-2.0";
-		GTK_DATA_PREFIX   = "${config.system.path}";
-		GIO_EXTRA_MODULES = "${pkgs.xfce.gvfs}/lib/gio/modules";
-		GTK_IM_MODULE     = "xim";
-		QT_IM_MODULE      = "xim";
   };
 
   environment.systemPackages = with pkgs; [
     apg # Tools for random password generation
-    haskellPackages.gitHUD # command-line HUD for git repos
+    # haskellPackages.gitHUD # command-line HUD for git repos
     linuxPackages.cpupower # Tool to examine and tune power saving features
     wget # Tool for retrieving files
     neovim
