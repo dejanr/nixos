@@ -51,7 +51,9 @@ in
     surf # suckless browser
     tesseract # OCR engine
     thunderbird # email client
+    tigervnc # Fork of tightVNC, made in cooperation with VirtualGL
     utox # Lightweight Tox client
+    unrar
     xarchiver # GTK+ frontend to 7z,zip,rar,tar,bzip2, gzip,arj, lha, rpm and deb (open and extract only)
     xclip # clipboard
     xdg_utils # Set of cli tools that assist applications integration
