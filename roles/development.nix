@@ -43,6 +43,7 @@
     gitAndTools.gitflow
     gitFull
     gnumake
+    gnum4 # GNU M4, a macro processor
     go
     gparted
     htop
@@ -59,8 +60,8 @@
     mercurial
     mosh # mobile shell, ssh replacement
     mr # multiple repository managment
-    ocaml_4_00_1 # Most popular variant of the Caml language
     opam # A package manager for OCaml
+    ocamlPackages.ocaml # Most popular variant of the Caml language
     ocamlPackages.core # Jane Street Capital's standard library overlay
     ocamlPackages.ounit # Unit test framework for OCaml
     ocamlPackages.utop # Universal toplevel for OCaml
