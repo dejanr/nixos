@@ -14,7 +14,6 @@
     awscli
     s3cmd
     s3fs
-    s3ql
     unfs3
     s3fs
     bash
@@ -59,6 +58,12 @@
     mercurial
     mosh # mobile shell, ssh replacement
     mr # multiple repository managment
+    ocaml_4_00_1 # Most popular variant of the Caml language
+    opam # A package manager for OCaml
+    ocamlPackages.core # Jane Street Capital's standard library overlay
+    ocamlPackages.ounit # Unit test framework for OCaml
+    ocamlPackages.utop # Universal toplevel for OCaml
+    ocamlPackages.reason # Facebook's friendly syntax to OCaml
     ncftp
     ngrep # network packet alalyzer
     nix-prefetch-scripts
