@@ -28,6 +28,7 @@
     darcs
     dpkg
     docker
+    exercism # A Go based command line tool for exercism.io
     pythonPackages.docker_compose
     emacs
     ettercap # Comprehensive suite for man in the middle attacks
