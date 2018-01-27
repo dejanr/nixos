@@ -151,6 +151,8 @@
     "webkitgtk-2.4.11"
   ];
 
+  nixpkgs.config.allowBroken = true;
+
 
 	nix = {
     nixPath = [
