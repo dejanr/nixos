@@ -73,6 +73,8 @@
   users.extraGroups.docker.members = [ "dejanr" ];
   users.extraGroups.vboxusers.members = [ "dejanr" ];
 
+  programs.mosh.enable = true;
+
   networking = {
     networkmanager.enable = true;
 

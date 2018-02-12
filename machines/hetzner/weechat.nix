@@ -3,7 +3,9 @@
 {
   imports = [
     <nixpkgs/nixos/modules/profiles/qemu-guest.nix>
-    ../roles/common.nix
+    ../../roles/common.nix
+    ../../roles/development.nix
+    ../../roles/services.nix
   ];
 
   boot = {
@@ -42,7 +44,7 @@
   swapDevices = [ ];
 
   networking = {
-    hostName = "nixos";
+    hostName = "weechat";
   };
 
   services.openssh.enable = true;
