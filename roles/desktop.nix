@@ -34,7 +34,6 @@ in
     libreoffice # Comprehensive, professional-quality productivity suite
     lm_sensors # Tools for reading hardware sensors
     openscad # 3D parametric model compiler
-    pamixer # cli tools for pulseaudio
     pcmanfm # File manager witth GTK+ interface
     pidgin-with-plugins # Multi-protocol instant messaging client
     pidginwindowmerge # merge contacts and message window
@@ -45,6 +44,7 @@ in
     pythonPackages.udiskie # Removable disk automounter for udisks
     pythonPackages.youtube-dl # Command-line tool to download videos from YouTube.com and other sites
     qalculate-gtk # The ultimate desktop calculator
+    shotcut # A free, open source, cross-platform video editor
     scrot # screen capturing
     slic3r # G-code generator for 3D printers
     sxiv # image viewer

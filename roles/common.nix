@@ -110,11 +110,6 @@
     firmware = [
       pkgs.firmwareLinuxNonfree
     ];
-
-    pulseaudio = {
-      enable = true;
-      package = pkgs.pulseaudioFull;
-    };
   };
 
   security.sudo.wheelNeedsPassword = false;

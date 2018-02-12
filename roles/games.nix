@@ -4,6 +4,9 @@
   environment.systemPackages = with pkgs; [
     steam
     minecraft
+    playonlinux
+    wineStaging
+    winetricks
   ];
 
   services = {
