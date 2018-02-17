@@ -1,21 +1,38 @@
 { config, pkgs, ... }:
 
 {
-  networking.firewall.allowedTCPPorts = [ 5000 ];
-
 	services.znc = {
     enable = true;
+    openFirewall = true;
+
     confOptions = {
       networks = {
         freenode = {
-          channels = [ "haskell" "haskell.au" "haskell-beginners" "haskell-offtopic" "idris" "nixos" "purescript" "qfpl" ];
+          channels = [
+            "haskell"
+            "haskell.au"
+            "haskell-beginners"
+            "haskell-offtopic"
+            "qfpl"
+            "nixos"
+            "ocaml"
+            "reasonml"
+            "reprap"
+            "bigdelta"
+          ];
           modules = [ "log" "simple_away" ];
           server = "chat.freenode.net";
           port = 6697;
           useSSL = true;
+          userName = "dejanr";
+          password = (import ../secrets.nix).ircPassword;
         };
       };
-      nick = "vaibhavsagar";
+
+      useSSL = false;
+      modules = [ "adminlog" "log" ];
+      nick = "dejanr";
+      port = 5000;
       # passBlock with `nix-shell -p znc --command "znc --makepass"`.
       # and place it inside secrets.nix
 			passBlock = (import ../secrets.nix).zncPassBlock;

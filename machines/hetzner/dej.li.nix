@@ -72,6 +72,11 @@
       email = "dejan@ranisavljevic.com";
       postRun = "systemctl restart nginx.service";
     };
+    "im.dej.li" = {
+      webroot = "/var/www/challenges";
+      email = "dejan@ranisavljevic.com";
+      postRun = "systemctl restart nginx.service";
+    };
   };
 
   services.nginx = {
@@ -91,6 +96,24 @@
 
         locations."/" = {
           root = "/var/www/dej.li";
+        };
+
+        locations."/.well-known/acme-challenge/" = {
+          root = "/var/www/challenges";
+        };
+      };
+      "im.dej.li" = {
+        enableACME = false;
+        addSSL = true;
+        sslCertificate = "${config.security.acme.directory}/im.dej.li/fullchain.pem";
+        sslCertificateKey = "${config.security.acme.directory}/im.dej.li/key.pem";
+
+        locations."/" = {
+          root = "/var/www/im.dej.li";
+        };
+
+        locations."/.well-known/acme-challenge/" = {
+          root = "/var/www/challenges";
         };
       };
     };
