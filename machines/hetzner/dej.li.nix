@@ -7,6 +7,11 @@
     ../../roles/znc.nix
   ];
 
+  environment.systemPackages = with pkgs; [
+    letsencrypt
+    certbot
+  ];
+
   boot = {
     cleanTmpDir = true;
     kernelParams = ["boot.shell_on_fail"];

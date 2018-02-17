@@ -10,7 +10,6 @@
         freenode = {
           channels = [
             "haskell"
-            "haskell.au"
             "haskell-beginners"
             "haskell-offtopic"
             "qfpl"
