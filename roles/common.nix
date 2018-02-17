@@ -65,8 +65,8 @@
       shell = "/run/current-system/sw/bin/bash";
       home = "/home/dejanr";
       createHome = true;
-      openssh.authorizedKeys.keys = [ (import ../ssh-keys.nix).keys ];
-
+      initialPassword = "nixos";
+      openssh.authorizedKeys.keys = (import ../ssh-keys.nix).keys;
     };
   };
 
@@ -90,6 +90,8 @@
         22   # ssh
         9418 # tor
         25565 # minecraft server
+        80
+        443
       ];
       allowedTCPPortRanges = [];
       allowedUDPPorts = [];
