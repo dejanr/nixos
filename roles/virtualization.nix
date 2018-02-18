@@ -16,4 +16,10 @@
   networking.firewall.checkReversePath = false;
 
   virtualisation.virtualbox.host.enable = true;
+
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = true;
+    autoPrune.enable = true;
+  };
 }
