@@ -28,6 +28,12 @@ Secrets are stored in `secrets.nix`, which looks something like this:
 }
 ```
 
+To use secret you would then just import secrets and access specific field:
+
+```
+password = (import ../secrets.nix).name.password;
+```
+
 ### Setup
 
 Symlink machine to configuration.nix.
