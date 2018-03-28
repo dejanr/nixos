@@ -1,11 +1,14 @@
 { config, lib, pkgs, ... }:
 
 {
+  nixpkgs.overlays = [ (import ../packages) ];
+
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreeRedistributable = true;
 
   environment.systemPackages = [
     pkgs.nix-repl
+    pkgs.haskellPackages.gitHUD
     pkgs.tmux
     pkgs.vim
     pkgs.gitAndTools.gitFull
