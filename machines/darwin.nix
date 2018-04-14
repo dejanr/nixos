@@ -20,6 +20,7 @@
     pkgs.minecraft
     pkgs.minecraft-server
     pkgs.reattach-to-user-namespace
+    pkgs.htop
   ];
 
   system.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3;
