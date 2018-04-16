@@ -10,7 +10,7 @@
     pkgs.nix-repl
     pkgs.haskellPackages.gitHUD
     pkgs.tmux
-    pkgs.vim
+    pkgs.vimHugeX
     pkgs.gitAndTools.gitFull
     pkgs.gitAndTools.git-extras
     pkgs.gitAndTools.gitflow
