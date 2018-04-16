@@ -49,3 +49,18 @@ To build a machine and activate result.
 ```
 sudo nixos-rebuild switch
 ```
+
+### Nix Darwin
+
+Create run symlink
+
+```
+sudo ln -s private/var/run /run
+```
+
+And rebuild switch darwin
+
+```
+$(nix-build '<darwin>' -A system --no-out-link)/sw/bin/darwin-rebuild switch
+```
+
