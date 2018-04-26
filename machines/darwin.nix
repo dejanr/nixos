@@ -24,13 +24,14 @@
     pkgs.minecraft
     pkgs.minecraft-server
     pkgs.reattach-to-user-namespace
+    pkgs.terminal-notifier
     pkgs.htop
   ];
 
   system.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3;
   system.defaults.NSGlobalDomain.ApplePressAndHoldEnabled = false;
-  system.defaults.NSGlobalDomain.InitialKeyRepeat = 22;
-  system.defaults.NSGlobalDomain.KeyRepeat = 12;
+  system.defaults.NSGlobalDomain.InitialKeyRepeat = 10;
+  system.defaults.NSGlobalDomain.KeyRepeat = 1;
   system.defaults.NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
   system.defaults.NSGlobalDomain.NSAutomaticDashSubstitutionEnabled = false;
   system.defaults.NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
@@ -38,6 +39,7 @@
   system.defaults.NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
   system.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode = true;
   system.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode2 = true;
+  system.defaults.NSGlobalDomain.NSDocumentSaveNewDocumentsToCloud = false;
 
   system.defaults.dock.autohide = true;
   system.defaults.dock.orientation = "left";
