@@ -26,6 +26,7 @@
     pkgs.reattach-to-user-namespace
     pkgs.terminal-notifier
     pkgs.htop
+    pkgs.cloudfoundry-cli
   ];
 
   system.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3;
