@@ -69,13 +69,13 @@ export NIX_PATH=darwin=/etc/nixos/darwin:darwin-config=/etc/nixos/configuration.
 #### Initial build
 
 ```
-sudo $(nix-build '<darwin>' -A system --no-out-link)/sw/bin/darwin-rebuild build
-sudo $(nix-build '<darwin>' -A system --no-out-link)/sw/bin/darwin-rebuild switch
+nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
+./result/bin/darwin-installer
 ```
 
 #### Normal rebuild
 
 ```
-sudo darwin-rebuild switch
+darwin-rebuild switch
 ```
 
