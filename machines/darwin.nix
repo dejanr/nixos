@@ -7,26 +7,30 @@
   nixpkgs.config.allowUnfreeRedistributable = true;
 
   environment.systemPackages = [
-    pkgs.nix-repl
-    pkgs.haskellPackages.gitHUD
-    pkgs.tmux
-    pkgs.vimHugeX
-    pkgs.gitAndTools.gitFull
-    pkgs.gitAndTools.git-extras
-    pkgs.gitAndTools.gitflow
-    pkgs.nodejs-8_x
-    pkgs.imagemagick
-    pkgs.fastlane
-    pkgs.jdk
-    pkgs.ag
     pkgs.ack
-    pkgs.unrar
+    pkgs.ag
+    pkgs.cloudfoundry-cli
+    pkgs.fastlane
+    pkgs.gitAndTools.git-extras
+    pkgs.gitAndTools.gitFull
+    pkgs.gitAndTools.gitflow
+    pkgs.haskellPackages.gitHUD
+    pkgs.htop
+    pkgs.imagemagick
+    pkgs.jdk
     pkgs.minecraft
     pkgs.minecraft-server
+    pkgs.nix-repl
+    pkgs.nodejs-8_x
+    pkgs.neovim
     pkgs.reattach-to-user-namespace
     pkgs.terminal-notifier
-    pkgs.htop
-    pkgs.cloudfoundry-cli
+    pkgs.tmux
+    pkgs.unrar
+    pkgs.vimHugeX
+    pkgs.wget
+    pkgs.python3
+    pkgs.rustup
   ];
 
   system.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3;
