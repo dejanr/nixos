@@ -1,14 +1,8 @@
-{ pkgs ? import <nixpkgs> {} }:
+self: super:
 
-let
-  callPackage = pkgs.lib.callPackageWith (pkgs // headcounter);
+let callPackage = super.newScope self; in rec {
+  base16 = super.callPackage ./base16/default.nix { };
+  rofi-menugen = super.callPackage ./rofi-menugen/default.nix { };
 
-  custom = rec {
-    base16 = pkgs.callPackage ./base16/default.nix { };
-    rofi-menugen = pkgs.callPackage ./rofi-menugen/default.nix { };
-
-    rofi = pkgs.rofi.override { i3Support = true; };
-  };
-in pkgs // {
-  inherit custom;
+  rofi = super.rofi.override { i3Support = true; };
 }

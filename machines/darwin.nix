@@ -1,32 +1,43 @@
 { config, lib, pkgs, ... }:
 
 {
+  nixpkgs.overlays = [ (import ../packages) ];
+
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreeRedistributable = true;
 
   environment.systemPackages = [
-    pkgs.nix-repl
-    pkgs.tmux
-    pkgs.vim
-    pkgs.gitAndTools.gitFull
-    pkgs.gitAndTools.git-extras
-    pkgs.gitAndTools.gitflow
-    pkgs.nodejs-8_x
-    pkgs.imagemagick
-    pkgs.fastlane
-    pkgs.jdk
-    pkgs.ag
     pkgs.ack
+    pkgs.ag
+    pkgs.cloudfoundry-cli
+    pkgs.fastlane
+    pkgs.gitAndTools.git-extras
+    pkgs.gitAndTools.gitFull
+    pkgs.gitAndTools.gitflow
+    pkgs.haskellPackages.gitHUD
+    pkgs.htop
+    pkgs.imagemagick
+    pkgs.jdk
     pkgs.tree
     pkgs.minecraft
     pkgs.minecraft-server
+    pkgs.nix-repl
+    pkgs.nodejs-8_x
+    pkgs.neovim
     pkgs.reattach-to-user-namespace
+    pkgs.terminal-notifier
+    pkgs.tmux
+    pkgs.unrar
+    pkgs.vimHugeX
+    pkgs.wget
+    pkgs.python3
+    pkgs.rustup
   ];
 
   system.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3;
   system.defaults.NSGlobalDomain.ApplePressAndHoldEnabled = false;
   system.defaults.NSGlobalDomain.InitialKeyRepeat = 10;
-  system.defaults.NSGlobalDomain.KeyRepeat = 3;
+  system.defaults.NSGlobalDomain.KeyRepeat = 1;
   system.defaults.NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
   system.defaults.NSGlobalDomain.NSAutomaticDashSubstitutionEnabled = false;
   system.defaults.NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
@@ -34,6 +45,7 @@
   system.defaults.NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
   system.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode = true;
   system.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode2 = true;
+  system.defaults.NSGlobalDomain.NSDocumentSaveNewDocumentsToCloud = false;
 
   system.defaults.dock.autohide = true;
   system.defaults.dock.orientation = "left";
