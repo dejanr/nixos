@@ -1,8 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  nixpkgs.overlays = [ (import ../packages) ];
-
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreeRedistributable = true;
 
@@ -32,6 +30,8 @@
     pkgs.wget
     pkgs.python3
     pkgs.rustup
+    pkgs.python36Packages.neovim
+    pkgs.fzf
   ];
 
   system.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3;
