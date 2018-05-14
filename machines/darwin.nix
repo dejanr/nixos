@@ -17,6 +17,7 @@
     pkgs.jdk
     pkgs.ag
     pkgs.ack
+    pkgs.tree
     pkgs.minecraft
     pkgs.minecraft-server
     pkgs.reattach-to-user-namespace
