@@ -57,7 +57,7 @@ OSX requires some additional bootstrapping, minimal manual setup i found to work
 #### Create run symlink
 
 ```
-sudo ln -s private/var/run /run
+sudo ln -s /private/var/run /run
 ```
 
 #### export NIX_PATH
@@ -78,4 +78,3 @@ nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
 ```
 darwin-rebuild switch
 ```
-
