@@ -1,14 +1,13 @@
 { config, lib, pkgs, ... }:
 
 {
-  nixpkgs.overlays = [ (import ../packages) ];
-
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreeRedistributable = true;
 
   environment.systemPackages = [
     pkgs.ack
     pkgs.ag
+    pkgs.cloudfoundry-cli
     pkgs.fastlane
     pkgs.emacs
     pkgs.gitAndTools.git-extras
@@ -18,15 +17,22 @@
     pkgs.htop
     pkgs.imagemagick
     pkgs.jdk
+    pkgs.tree
     pkgs.minecraft
     pkgs.minecraft-server
     pkgs.nix-repl
     pkgs.nodejs-8_x
+    pkgs.neovim
     pkgs.reattach-to-user-namespace
     pkgs.terminal-notifier
     pkgs.tmux
     pkgs.unrar
     pkgs.vimHugeX
+    pkgs.wget
+    pkgs.python3
+    pkgs.rustup
+    pkgs.python36Packages.neovim
+    pkgs.fzf
   ];
 
   system.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3;

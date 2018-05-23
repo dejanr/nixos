@@ -52,15 +52,29 @@ sudo nixos-rebuild switch
 
 ### Nix Darwin
 
-Create run symlink
+OSX requires some additional bootstrapping, minimal manual setup i found to work so far is bellow.
+
+#### Create run symlink
 
 ```
-sudo ln -s private/var/run /run
+sudo ln -s /private/var/run /run
 ```
 
-And rebuild switch darwin
+#### export NIX_PATH
 
 ```
-$(nix-build '<darwin>' -A system --no-out-link)/sw/bin/darwin-rebuild switch
+export NIX_PATH=darwin=/etc/nixos/darwin:darwin-config=/etc/nixos/configuration.nix:$NIX_PATH
 ```
 
+#### Install nix-darwin
+
+```
+nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
+./result/bin/darwin-installer
+```
+
+#### Normal nix-darwin rebuild
+
+```
+darwin-rebuild switch
+```
