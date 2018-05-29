@@ -10,6 +10,7 @@
     pkgs.ag
     pkgs.cloudfoundry-cli
     pkgs.fastlane
+    pkgs.emacs
     pkgs.gitAndTools.git-extras
     pkgs.gitAndTools.gitFull
     pkgs.gitAndTools.gitflow
