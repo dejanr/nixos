@@ -6,6 +6,7 @@
 
   environment.systemPackages = [
     pkgs.ack
+    pkgs.awscli
     pkgs.ag
     pkgs.cloudfoundry-cli
     pkgs.fastlane
