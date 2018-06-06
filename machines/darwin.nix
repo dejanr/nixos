@@ -23,7 +23,6 @@
     pkgs.minecraft-server
     pkgs.nix-repl
     pkgs.nodejs-8_x
-    pkgs.neovim
     pkgs.reattach-to-user-namespace
     pkgs.terminal-notifier
     pkgs.tmux
@@ -32,7 +31,6 @@
     pkgs.wget
     pkgs.python3
     pkgs.rustup
-    pkgs.python36Packages.neovim
     pkgs.fzf
   ];
 
