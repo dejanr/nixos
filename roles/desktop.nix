@@ -41,12 +41,12 @@ in
     pinentry # gnupg interface to passphrase input
     polkit # A dbus session bus service that is used to bring up authentication dialogs
     printrun # 3d printing host software
-    pythonPackages.udiskie # Removable disk automounter for udisks
+    udiskie # Removable disk automounter for udisks
     pythonPackages.youtube-dl # Command-line tool to download videos from YouTube.com and other sites
     qalculate-gtk # The ultimate desktop calculator
     shotcut # A free, open source, cross-platform video editor
     scrot # screen capturing
-    slic3r # G-code generator for 3D printers
+    #slic3r # G-code generator for 3D printers
     sxiv # image viewer
     surf # suckless browser
     tesseract # OCR engine

@@ -12,7 +12,7 @@
     ];
 
   boot = {
-    initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+    initrd.availableKernelModules = [ "ata_generic" "ehci_pci" "ahci" "mpt3sas" "xhci_pci" "firewire_ohci" "usb_storage" "usbhid" "sd_mod" ];
     kernelModules = [
       "kvm-intel"
     ];
@@ -39,12 +39,12 @@
   };
 
   fileSystems."/" =
-    { device = "tank/root/nixos";
+    { device = "main/ROOT/nixos";
       fsType = "zfs";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/6554-8AFF";
+    { device = "/dev/disk/by-uuid/01A9-F338";
       fsType = "vfat";
     };
 
@@ -75,7 +75,7 @@
     '';
   };
 
-  nix.maxJobs = 8;
+  nix.maxJobs = lib.mkDefault 40;
 
-  system.stateVersion = "16.09";
+  system.nixos.stateVersion = "18.03";
 }

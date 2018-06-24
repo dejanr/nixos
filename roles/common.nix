@@ -25,7 +25,7 @@
 
   environment.systemPackages = with pkgs; [
     apg # Tools for random password generation
-    # haskellPackages.gitHUD # command-line HUD for git repos
+    haskellPackages.gitHUD # command-line HUD for git repos
     linuxPackages.cpupower # Tool to examine and tune power saving features
     wget # Tool for retrieving files
     neovim
