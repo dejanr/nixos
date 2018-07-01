@@ -8,6 +8,7 @@
   services = {
 		printing.enable = true;
 		avahi.enable = true;
+    urxvtd.enable = true;
 
     mpd.enable = true;
 		udisks2.enable = true;

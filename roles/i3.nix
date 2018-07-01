@@ -100,10 +100,6 @@
       '';
     };
 
-		multitouch.enable = true;
-		multitouch.ignorePalm = true;
-		multitouch.invertScroll = true;
-
 		xkbOptions = "terminate:ctrl_alt_bksp, ctrl:nocaps";
   };
 }

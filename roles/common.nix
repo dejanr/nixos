@@ -17,8 +17,6 @@
       terminus_font
       ttf_bitstream_vera
       ubuntu_font_family
-      rxvt
-      rxvt_unicode
     ];
   };
 
@@ -43,6 +41,13 @@
     tmux # Terminal multiplexer
     bc # GNU software calculator
     nixops # NixOS cloud provisioning and deployment tool
+    rxvt
+    rxvt_unicode
+    urxvt_vtwheel
+    urxvt_font_size
+    urxvt_perl
+    urxvt_perls
+    font-manager # Simple font management for GTK+ desktop environments
   ];
 
   users = {
@@ -69,32 +74,10 @@
       createHome = true;
       openssh.authorizedKeys.keys = (import ../ssh-keys.nix).keys;
     };
-    extraUsers.dejli = {
-      description = "Dejan Ranisavljevic";
-      name = "dejli";
-      group = "users";
-      extraGroups = [
-				"lp" "kmem"
-				"wheel" "disk"
-				"audio" "video"
-				"networkmanager"
-				"systemd-journal"
-				"vboxusers" "docker"
-				"utmp" "adm" "input"
-				"tty" "floppy" "uucp"
-				"cdrom" "tape" "dialout"
-        "libvirtd"
-        "transmission" "plex"
-			];
-      shell = "/run/current-system/sw/bin/bash";
-      home = "/home/dejli";
-      createHome = true;
-      openssh.authorizedKeys.keys = (import ../ssh-keys.nix).keys;
-    };
   };
 
-  users.extraGroups.docker.members = [ "dejanr" "dejli" ];
-  users.extraGroups.vboxusers.members = [ "dejanr" "dejli" ];
+  users.extraGroups.docker.members = [ "dejanr" ];
+  users.extraGroups.vboxusers.members = [ "dejanr" ];
 
   programs.mosh.enable = true;
 
@@ -124,7 +107,6 @@
   };
 
   i18n = {
-    consoleFont = "${pkgs.terminus_font}/share/consolefonts/ter-v32n.psf.gz";
     consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
     supportedLocales = [ "en_US.UTF-8/UTF-8" "de_DE.UTF-8/UTF-8" "sr_RS@latin/UTF-8" ];

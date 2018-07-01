@@ -3,9 +3,10 @@
 {
   imports = [
     ../roles/common.nix
+    ../roles/fonts.nix
     ../roles/multimedia.nix
     ../roles/desktop.nix
-    ../roles/i3.nix
+    ../roles/xmonad.nix
     ../roles/development.nix
     ../roles/services.nix
     ../roles/electronics.nix
