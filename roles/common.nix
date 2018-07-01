@@ -17,6 +17,8 @@
       terminus_font
       ttf_bitstream_vera
       ubuntu_font_family
+      rxvt
+      rxvt_unicode
     ];
   };
 

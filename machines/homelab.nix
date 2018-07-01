@@ -55,7 +55,7 @@
     blacklistedKernelModules = [
       "nouveau"
     ];
-    extraModulePackages = [ pkgs.linuxPackages_latest.nvidia_x11 ];
+    extraModulePackages = [];
     extraModprobeConfig = ''
     '';
 
@@ -111,6 +111,4 @@
     powertop.enable = true;
     cpuFreqGovernor = "performance";
   };
-
-  system.nixos.stateVersion = "18.03";
 }
