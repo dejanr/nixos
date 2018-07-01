@@ -65,13 +65,34 @@
       shell = "/run/current-system/sw/bin/bash";
       home = "/home/dejanr";
       createHome = true;
-      initialPassword = "nixos";
+      openssh.authorizedKeys.keys = (import ../ssh-keys.nix).keys;
+    };
+    extraUsers.dejli = {
+      description = "Dejan Ranisavljevic";
+      name = "dejli";
+      group = "users";
+      extraGroups = [
+				"lp" "kmem"
+				"wheel" "disk"
+				"audio" "video"
+				"networkmanager"
+				"systemd-journal"
+				"vboxusers" "docker"
+				"utmp" "adm" "input"
+				"tty" "floppy" "uucp"
+				"cdrom" "tape" "dialout"
+        "libvirtd"
+        "transmission" "plex"
+			];
+      shell = "/run/current-system/sw/bin/bash";
+      home = "/home/dejli";
+      createHome = true;
       openssh.authorizedKeys.keys = (import ../ssh-keys.nix).keys;
     };
   };
 
-  users.extraGroups.docker.members = [ "dejanr" ];
-  users.extraGroups.vboxusers.members = [ "dejanr" ];
+  users.extraGroups.docker.members = [ "dejanr" "dejli" ];
+  users.extraGroups.vboxusers.members = [ "dejanr" "dejli" ];
 
   programs.mosh.enable = true;
 
@@ -154,15 +175,7 @@
 
   nixpkgs.config.allowBroken = true;
 
-
 	nix = {
-    nixPath = [
-      "/etc/nixos"
-      "nixpkgs=/etc/nixos/nixpkgs"
-      "nixos=/etc/nixos/nixpkgs/nixos"
-      "nixos-config=/etc/nixos/configuration.nix"
-    ];
-
     extraOptions = ''
       gc-keep-outputs = false
       gc-keep-derivations = false

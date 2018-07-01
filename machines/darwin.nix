@@ -76,7 +76,5 @@
   '';
   nix.nixPath = [
     "darwin-config=/etc/nixos/machines/darwin.nix"
-    "darwin=/etc/nixos/darwin"
-    "nixpkgs=/etc/nixos/nixpkgs"
   ];
 }

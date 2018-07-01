@@ -9,16 +9,16 @@
     ../roles/development.nix
     ../roles/services.nix
     ../roles/electronics.nix
-    ../roles/games.nix
-    ../roles/nas.nix
-    ../roles/transmission.nix
-    ../roles/plex.nix
-    ../roles/virtualization.nix
+    #../roles/games.nix
+    #../roles/nas.nix
+    #../roles/transmission.nix
+    #../roles/plex.nix
+    #../roles/virtualization.nix
   ];
 
   boot = {
     initrd.availableKernelModules = [ "ata_generic" "ehci_pci" "ahci" "mpt3sas" "isci" "xhci_pci" "firewire_ohci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
-    kernelPackages = pkgs.linuxPackages_latest;
+    #kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [
       "kvm-intel"
       "vfio"
@@ -60,6 +60,7 @@
     '';
 
     supportedFilesystems = [ "zfs" ];
+    zfs.enableUnstable = true;
 
     loader = {
       systemd-boot.enable = true;
@@ -72,15 +73,15 @@
     cleanTmpDir = true;
   };
 
-  fileSystems."/" = {
-    device = "main/nixos/root";
-    fsType = "zfs";
-  };
+  fileSystems."/" =
+    { device = "main/ROOT/nixos";
+      fsType = "zfs";
+    };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-id/ata-TS32GMTS400_C331290006-part1";
-    fsType = "vfat";
-  };
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/01A9-F338";
+      fsType = "vfat";
+    };
 
   swapDevices = [ ];
 
@@ -104,7 +105,12 @@
   };
 
   nix.maxJobs = lib.mkDefault 40;
-  powerManagement.cpuFreqGovernor = "powersave";
 
-  system.stateVersion = "17.09";
+  powerManagement = {
+    enable = true;
+    powertop.enable = true;
+    cpuFreqGovernor = "performance";
+  };
+
+  system.nixos.stateVersion = "18.03";
 }
