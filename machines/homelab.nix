@@ -61,26 +61,50 @@
     '';
 
     supportedFilesystems = [ "zfs" ];
-    zfs.enableUnstable = true;
 
     loader = {
       systemd-boot.enable = true;
       generationsDir.enable = false;
       generationsDir.copyKernels = false;
       efi.canTouchEfiVariables = true;
-      timeout = 2;
+      timeout = 1;
     };
 
     cleanTmpDir = true;
   };
 
   fileSystems."/" =
-    { device = "main/ROOT/nixos";
+    { device = "root/nixos";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home/dejanr/documents" =
+    { device = "storage/documents";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home/dejanr/downloads" =
+    { device = "storage/downloads";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home/dejanr/movies" =
+    { device = "storage/movies";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home/dejanr/pictures" =
+    { device = "storage/pictures";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home/dejanr/projects" =
+    { device = "storage/projects";
       fsType = "zfs";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/01A9-F338";
+    { device = "/dev/sda1";
       fsType = "vfat";
     };
 
