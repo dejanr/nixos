@@ -34,6 +34,8 @@
     };
     kernelParams = [
       "quiet nomodeset"
+      "usbhid.quirks=0x046d:0xc07e:0x00000400"
+      "usbhid.quirks=0x16c0:0x047c:0x00000400"
 
       # Use IOMMU
       "intel_iommu=on"
