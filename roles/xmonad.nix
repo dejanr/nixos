@@ -41,6 +41,8 @@
 
     xsettingsd # Provides settings to X11 applications via the XSETTINGS specification
     wmctrl # Command line tool to interact with an EWMH/NetWM compatible X Window Manager
+
+    gnome3.adwaita-icon-theme
   ];
 
   services.xserver = {
