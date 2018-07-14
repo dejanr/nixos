@@ -159,7 +159,6 @@
       highTemp = 65;
       maxTemp = 70;
       minFanSpeed = 3500;
-      maxFanSpeed = 5500;
     };
   };
 
