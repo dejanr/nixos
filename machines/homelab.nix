@@ -119,9 +119,25 @@
 
   services = {
     unifi.enable = true;
+
     xserver = {
       videoDrivers = [ "nvidia" ];
-      displayManager.xserverArgs = [ "-dpi 92" ];
+
+      modules = [ pkgs.xf86_input_mtrack ];
+
+      multitouch = {
+        enable = false;
+        invertScroll = true;
+      };
+
+      synaptics = {
+        enable = false;
+        horizontalScroll = true;
+      };
+
+      displayManager = {
+        xserverArgs = [ "-dpi 92" ];
+      };
     };
   };
 

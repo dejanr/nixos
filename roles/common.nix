@@ -80,6 +80,7 @@
   users.extraGroups.vboxusers.members = [ "dejanr" ];
 
   programs.mosh.enable = true;
+  programs.vim.defaultEditor = true;
 
   networking = {
     networkmanager.enable = true;
