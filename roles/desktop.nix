@@ -46,7 +46,7 @@ in
     qalculate-gtk # The ultimate desktop calculator
     shotcut # A free, open source, cross-platform video editor
     scrot # screen capturing
-    #slic3r # G-code generator for 3D printers
+    slic3r-prusa3d # G-code generator for 3D printer
     sxiv # image viewer
     surf # suckless browser
     tesseract # OCR engine
