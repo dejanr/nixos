@@ -4,7 +4,7 @@
   networking.firewall.allowedTCPPorts = [ 32400 ];
 
   fileSystems."/var/lib/plex" = {
-    device = "main/nixos/config/plex";
+    device = "root/config/plex";
     fsType = "zfs";
   };
 
@@ -17,15 +17,7 @@
         isReadOnly = false;
       };
       "/downloads" = {
-        hostPath = "/mnt/media/downloads";
-        isReadOnly = false;
-      };
-      "/movies" = {
-        hostPath = "/mnt/media/movies";
-        isReadOnly = false;
-      };
-      "/tv" = {
-        hostPath = "/mnt/media/tv";
+        hostPath = "/home/dejanr/downloads";
         isReadOnly = false;
       };
     };

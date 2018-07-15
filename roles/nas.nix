@@ -5,33 +5,28 @@
     samba # The standard Windows interoperability suite of programs for Linux and Unix
   ];
 
-  fileSystems."/mnt/home" = {
-    device = "backup/home";
-    fsType = "zfs";
-  };
-
-  fileSystems."/mnt/media" = {
-    device = "backup/media";
-    fsType = "zfs";
-  };
-
-  fileSystems."/mnt/projects" = {
-    device = "backup/projects";
-    fsType = "zfs";
-  };
-
-  fileSystems."/export/home" = {
-    device = "/mnt/home";
+  fileSystems."/export/documents" = {
+    device = "/home/dejanr/documents";
     options = ["bind"];
   };
 
-  fileSystems."/export/media" = {
-    device = "/mnt/media";
+  fileSystems."/export/downloads" = {
+    device = "/home/dejanr/downloads";
+    options = ["bind"];
+  };
+
+  fileSystems."/export/movies" = {
+    device = "/home/dejanr/movies";
+    options = ["bind"];
+  };
+
+  fileSystems."/export/pictures" = {
+    device = "/home/dejanr/pictures";
     options = ["bind"];
   };
 
   fileSystems."/export/projects" = {
-    device = "/mnt/projects";
+    device = "/home/dejanr/projects";
     options = ["bind"];
   };
 
@@ -42,8 +37,10 @@
     # mountdPort = 4002;
     exports = ''
       /export                192.168.1.0/24(rw,fsid=0,no_subtree_check)
-      /export/home           192.168.1.0/24(rw,async,nohide,all_squash,anonuid=1000,anongid=1000,insecure,no_subtree_check)
-      /export/media          192.168.1.0/24(rw,nohide,all_squash,anonuid=1000,anongid=1000,insecure,no_subtree_check)
+      /export/documents      192.168.1.0/24(rw,async,nohide,all_squash,anonuid=1000,anongid=1000,insecure,no_subtree_check)
+      /export/downloads      192.168.1.0/24(rw,async,nohide,all_squash,anonuid=1000,anongid=1000,insecure,no_subtree_check)
+      /export/movies         192.168.1.0/24(rw,async,nohide,all_squash,anonuid=1000,anongid=1000,insecure,no_subtree_check)
+      /export/pictures       192.168.1.0/24(rw,async,nohide,all_squash,anonuid=1000,anongid=1000,insecure,no_subtree_check)
       /export/projects       192.168.1.0/24(rw,async,nohide,all_squash,anonuid=1000,anongid=1000,insecure,no_subtree_check)
     '';
   };
@@ -91,22 +88,32 @@
     '';
 
     shares = {
-      home = {
-        path = "/mnt/home";
+      documents = {
+        path = "/home/dejanr/documents";
         "read only" = "no";
         "valid users" = "dejanr";
         "max connections" = "20000";
       };
-      media = {
-        path = "/mnt/media";
-        "writable" = "yes";
-        "public" = "yes";
-        "browsable" = "yes";
-        "guest ok" = "yes";
+      downloads = {
+        path = "/home/dejanr/downloads";
+        "read only" = "no";
+        "valid users" = "dejanr";
+        "max connections" = "20000";
+      };
+      movies = {
+        path = "/home/dejanr/movies";
+        "read only" = "no";
+        "valid users" = "dejanr";
+        "max connections" = "20000";
+      };
+      pictures = {
+        path = "/home/dejanr/pictures";
+        "read only" = "no";
+        "valid users" = "dejanr";
         "max connections" = "20000";
       };
       projects = {
-        path = "/mnt/home";
+        path = "/mnt/projects";
         "read only" = "no";
         "valid users" = "dejanr";
         "max connections" = "20000";

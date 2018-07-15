@@ -11,20 +11,23 @@
     ../roles/services.nix
     ../roles/electronics.nix
     ../roles/games.nix
-    #../roles/nas.nix
-    #../roles/transmission.nix
-    #../roles/plex.nix
-    #../roles/virtualization.nix
+    ../roles/nas.nix
+    ../roles/transmission.nix
+    ../roles/plex.nix
+    ../roles/virtualization.nix
   ];
 
   boot = {
     initrd.availableKernelModules = [ "ata_generic" "ehci_pci" "ahci" "mpt3sas" "isci" "xhci_pci" "firewire_ohci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
+    initrd.kernelModules = [ "vfio_pci" ];
     #kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [
-      "kvm-intel"
+      "kvm"
+      "kvm_intel"
       "vfio"
       "vfio_pci"
       "vfio_iommu_type1"
+      "vfio_virqfd"
       "tun"
       "virtio"
       "coretemp"
@@ -37,17 +40,14 @@
       "usbhid.quirks=0x046d:0xc07e:0x00000400"
       "usbhid.quirks=0x16c0:0x047c:0x00000400"
 
+      "vfio-pci.ids=10de:1c03,10de:10f1"
+
       # Use IOMMU
       "intel_iommu=on"
       "i915.preliminary_hw_support=1"
+      "i915.enable_hd_vgaarb=1"
       "vfio_iommu_type1.allow_unsafe_interrupts=1"
       "kvm.allow_unsafe_assigned_interrupts=1"
-
-      # 05:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP106 [GeForce GTX 1060 6GB] [10de:1c03] (rev a1)
-      # 05:00.1 Audio device [0403]: NVIDIA Corporation GP106 High Definition Audio Controller [10de:10f1] (rev a1)
-
-      # Assign devices to vfio
-      # "vfio-pci.ids=10de:1c03,10de:10f1"
 
       # Needed by OS X
       "kvm.ignore_msrs=1"
@@ -56,10 +56,15 @@
       # "isolcpus=1-3,5-7"
     ];
     blacklistedKernelModules = [
-      "nouveau"
+      "nouveau" "nvidia"
     ];
     extraModulePackages = [];
     extraModprobeConfig = ''
+      # 41:00.0 VGA compatible controller: NVIDIA Corporation GP106 [GeForce GTX 1060 6GB] (rev a1)
+      # 41:00.1 Audio device: NVIDIA Corporation GP106 High Definition Audio Controller (rev a1)
+
+      # Assign devices to vfio
+      options vfio-pci ids=10de:1c03,10de:10f1
     '';
 
     supportedFilesystems = [ "zfs" ];

@@ -1,20 +1,15 @@
 { pkgs, ... }:
 
 {
-  fileSystems."/var/lib/transmission/incomplete" = {
-    device = "main/nixos/downloads";
-    fsType = "zfs";
-  };
-
   environment.systemPackages = with pkgs; [
     transmission_gtk
   ];
 
   services.transmission.enable = true;
   services.transmission.settings = {
-    download-dir = "/mnt/media/downloads";
+    download-dir = "/home/dejanr/downloads";
     incomplete-dir-enabled = true;
-    incomplete-dir = "/var/lib/transmission/incomplete";
+    incomplete-dir = "/home/dejanr/downloads";
     ratio-limit-enabled = true;
     ratio-limit = 0;
     encryption = 2;
