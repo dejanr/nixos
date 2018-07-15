@@ -10,7 +10,7 @@
     ../roles/development.nix
     ../roles/services.nix
     ../roles/electronics.nix
-    #../roles/games.nix
+    ../roles/games.nix
     #../roles/nas.nix
     #../roles/transmission.nix
     #../roles/plex.nix
