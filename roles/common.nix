@@ -66,18 +66,16 @@
 				"utmp" "adm" "input"
 				"tty" "floppy" "uucp"
 				"cdrom" "tape" "dialout"
-        "libvirtd"
+        "libvirtd" "docker"
         "transmission" "plex"
 			];
       shell = "/run/current-system/sw/bin/bash";
       home = "/home/dejanr";
       createHome = true;
-      openssh.authorizedKeys.keys = (import ../ssh-keys.nix).keys;
     };
   };
 
-  users.extraGroups.docker.members = [ "dejanr" ];
-  users.extraGroups.vboxusers.members = [ "dejanr" ];
+  services.openssh.authorizedKeysFiles = ["/home/dejanr/.ssh/authorized_keys" "/etc/nixos/authorized_keys"];
 
   programs.mosh.enable = true;
   programs.vim.defaultEditor = true;
