@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+curl https://github.com/dejanr.keys > authorized_keys

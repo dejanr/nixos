@@ -73,6 +73,7 @@
       home = "/home/dejanr";
       createHome = true;
       openssh.authorizedKeys.keys = (import ../ssh-keys.nix).keys;
+      services.openssh.authorizedKeysFiles = ["/home/dejanr/.ssh/authorized_keys" "/etc/nixos/authorized_keys"];
     };
   };
 
