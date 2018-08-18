@@ -47,13 +47,18 @@
       "i915.preliminary_hw_support=1"
       "i915.enable_hd_vgaarb=1"
       "vfio_iommu_type1.allow_unsafe_interrupts=1"
+
       "kvm.allow_unsafe_assigned_interrupts=1"
 
       # Needed by OS X
       "kvm.ignore_msrs=1"
+      "kvm_intel.nested=1"
+      "kvm_intel.emulate_invalid_guest_state=0"
 
       # Only schedule cpus 0,1
       # "isolcpus=1-3,5-7"
+
+      "hugepagesz=1GB"
     ];
     blacklistedKernelModules = [
       "nouveau" "nvidia"
@@ -141,9 +146,15 @@
       };
 
       displayManager = {
-        xserverArgs = [ "-dpi 92" ];
+        xserverArgs = [ "-dpi 109" ];
       };
     };
+
+    journald.extraConfig = ''
+      Compress=yes
+      SystemMaxUse=1024M
+      SystemMaxFileSize=8M
+    '';
   };
 
   environment = {

@@ -7,9 +7,9 @@
 
   services.transmission.enable = true;
   services.transmission.settings = {
-    download-dir = "/home/dejanr/downloads";
+    download-dir = "/home/dejanr/downloads/transmission";
     incomplete-dir-enabled = true;
-    incomplete-dir = "/home/dejanr/downloads";
+    incomplete-dir = "/home/dejanr/downloads/transmission";
     ratio-limit-enabled = true;
     ratio-limit = 0;
     encryption = 2;

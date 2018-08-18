@@ -66,7 +66,7 @@
 				"utmp" "adm" "input"
 				"tty" "floppy" "uucp"
 				"cdrom" "tape" "dialout"
-        "libvirtd" "docker"
+        "libvirtd"
         "transmission" "plex"
 			];
       shell = "/run/current-system/sw/bin/bash";
