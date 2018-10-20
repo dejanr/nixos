@@ -164,10 +164,4 @@
   };
 
   nix.maxJobs = lib.mkDefault 40;
-
-  powerManagement = {
-    enable = true;
-    powertop.enable = true;
-    cpuFreqGovernor = "performance";
-  };
 }

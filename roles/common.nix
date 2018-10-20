@@ -14,9 +14,11 @@
       liberation_ttf
       proggyfonts
       source-sans-pro
+      source-code-pro
       terminus_font
       ttf_bitstream_vera
       ubuntu_font_family
+      unifont
     ];
   };
 
