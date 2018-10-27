@@ -102,7 +102,7 @@
 
   environment = {
     etc."X11/Xresources".text = ''
-      Xft.dpi: 92
+      Xft.dpi: 109
     '';
   };
 
