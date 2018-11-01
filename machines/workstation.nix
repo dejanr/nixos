@@ -74,7 +74,7 @@
     unifi.enable = true;
 
     xserver = {
-      videoDrivers = [ "nvidia" ];
+      videoDrivers = [ "intel" ];
 
       modules = [ pkgs.xf86_input_mtrack ];
 
@@ -104,6 +104,16 @@
     etc."X11/Xresources".text = ''
       Xft.dpi: 109
     '';
+  };
+
+
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
+    s3tcSupport = true;
+    extraPackages = [
+      pkgs.vaapiIntel
+    ];
   };
 
   nix.maxJobs = lib.mkDefault 8;
