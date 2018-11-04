@@ -6,24 +6,24 @@
     ../roles/fonts.nix
     ../roles/multimedia.nix
     ../roles/desktop.nix
-    ../roles/i3.nix
+    ../roles/xmonad.nix
     ../roles/development.nix
     ../roles/services.nix
     ../roles/electronics.nix
     ../roles/games.nix
-    #../roles/nas.nix
-    #../roles/transmission.nix
-    #../roles/plex.nix
+    ../roles/nas.nix
+    ../roles/transmission.nix
+    ../roles/plex.nix
     ../roles/virtualization.nix
   ];
 
   boot = {
-    initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
-    initrd.kernelModules = [ "vfio_pci" "fbcon" ];
+    initrd.availableKernelModules = [ "ata_generic" "ehci_pci" "ahci" "mpt3sas" "isci" "xhci_pci" "firewire_ohci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
+    initrd.kernelModules = [ "vfio_pci" ];
+    #kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [
       "kvm"
       "kvm_intel"
-      "kvm-intel"
       "vfio"
       "vfio_pci"
       "vfio_iommu_type1"
@@ -37,8 +37,10 @@
     };
     kernelParams = [
       "quiet nomodeset"
+      "usbhid.quirks=0x046d:0xc07e:0x00000400"
+      "usbhid.quirks=0x16c0:0x047c:0x00000400"
 
-      #"vfio-pci.ids=10de:1c03,10de:10f1"
+      "vfio-pci.ids=10de:1c03,10de:10f1"
 
       # Use IOMMU
       "intel_iommu=on"
@@ -67,7 +69,7 @@
       # 41:00.1 Audio device: NVIDIA Corporation GP106 High Definition Audio Controller (rev a1)
 
       # Assign devices to vfio
-      #options vfio-pci ids=10de:1c03,10de:10f1
+      options vfio-pci ids=10de:1c03,10de:10f1
     '';
 
     supportedFilesystems = [ "zfs" ];
@@ -84,17 +86,37 @@
   };
 
   fileSystems."/" =
-    { device = "zpool/root/nixos";
+    { device = "root/nixos";
       fsType = "zfs";
     };
 
-  fileSystems."/home" =
-    { device = "zpool/home";
+  fileSystems."/home/dejanr/documents" =
+    { device = "storage/documents";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home/dejanr/downloads" =
+    { device = "storage/downloads";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home/dejanr/movies" =
+    { device = "storage/movies";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home/dejanr/pictures" =
+    { device = "storage/pictures";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home/dejanr/projects" =
+    { device = "storage/projects";
       fsType = "zfs";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/FECA-3A1C";
+    { device = "/dev/sda1";
       fsType = "vfat";
     };
 
@@ -105,33 +127,41 @@
     hostName = "homelab";
   };
 
-  hardware = {
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-      extraPackages = [ pkgs.vaapiIntel pkgs.libvdpau-va-gl pkgs.vaapiVdpau ];
-    };
-    pulseaudio.support32Bit = true;
-  };
-
   services = {
     unifi.enable = true;
 
     xserver = {
-      enable = true;
       videoDrivers = [ "nvidia" ];
+
+      modules = [ pkgs.xf86_input_mtrack ];
+
+      multitouch = {
+        enable = false;
+        invertScroll = true;
+      };
+
+      synaptics = {
+        enable = false;
+        horizontalScroll = true;
+      };
+
       displayManager = {
         xserverArgs = [ "-dpi 109" ];
       };
     };
+
+    journald.extraConfig = ''
+      Compress=yes
+      SystemMaxUse=1024M
+      SystemMaxFileSize=8M
+    '';
   };
 
   environment = {
     etc."X11/Xresources".text = ''
-      Xft.dpi: 109
+      Xft.dpi: 92
     '';
   };
 
-  nix.maxJobs = lib.mkDefault 8;
+  nix.maxJobs = lib.mkDefault 40;
 }

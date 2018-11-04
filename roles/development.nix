@@ -69,7 +69,6 @@
     ncftp
     ngrep # network packet alalyzer
     nix-prefetch-scripts
-    nix-repl
     nmap # network discovery and security audit
     nodejs-8_x # Event-driven I/O framework for the V8 JavaScript engine
     nox # tools to make nix nicer

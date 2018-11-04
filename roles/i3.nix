@@ -67,7 +67,11 @@
     };
 
     windowManager = {
-      i3.enable = true;
+      i3 = {
+        enable = true;
+        package = pkgs.i3-gaps;
+      };
+
       default = "i3";
     };
 
@@ -94,7 +98,7 @@
         ${pkgs.xorg.xsetroot}/bin/xsetroot -cursor_name left_ptr &
         ${pkgs.xorg.xrdb}/bin/xrdb -merge ~/.Xresources &
         ${pkgs.xorg.xrdb}/bin/xrdb -merge /etc/X11/Xresources &
-        ${pkgs.feh}/bin/feh --bg-fill /etc/nixos/wallpapers/lambda2.jpg &
+        ${pkgs.feh}/bin/feh --bg-fill /etc/nixos/wallpapers/bluemist.jpg &
         ${pkgs.networkmanagerapplet}/bin/nm-applet &
         ${pkgs.emacs}/bin/emacs --daemon &
       '';
