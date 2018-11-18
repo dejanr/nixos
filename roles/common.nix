@@ -154,6 +154,13 @@
     });
   '';
 
+  security.pam.loginLimits = [{
+    domain = "*";
+    type = "soft";
+    item = "nofile";
+    value = "4096";
+  }];
+
   nixpkgs.config.permittedInsecurePackages = [
     "webkitgtk-2.4.11"
   ];
