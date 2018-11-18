@@ -1,22 +1,15 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
-    #vulkan-headers
-    #vulkan-loader
-    #vulkan-tools
-    #vulkan-validation-layers
-    #steam
-    #steam-run
-    #steamcontroller
-    #sc-controller
-    #haskellPackages.steambrowser
-    #linux-steam-integration
-    minecraft
-    #playonlinux
-    wineStaging
-    winetricks
-    evelauncher
+    unstable.steam
+    unstable.steam-run
+    unstable.steamcontroller
+    unstable.sc-controller
+    unstable.minecraft
+    unstable.playonlinux
+    unstable.wineStaging
+    unstable.winetricks
   ];
 
 
@@ -24,7 +17,6 @@
     allowUnfree = true;
     packageOverrides = {
       playonlinux = pkgs.callPackage ../packages/playonlinux.nix {};
-      evelauncher = pkgs.callPackage ../packages/evelauncher.nix {};
     };
   };
 
