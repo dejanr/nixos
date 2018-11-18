@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  unstableTarball = fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
+in
 {
   time.timeZone = "Europe/Berlin";
 
@@ -161,11 +164,21 @@
     value = "4096";
   }];
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "webkitgtk-2.4.11"
-  ];
+  nixpkgs.config = {
+    config.allowBroken = true;
 
-  nixpkgs.config.allowBroken = true;
+    permittedInsecurePackages = [
+      "webkitgtk-2.4.11"
+    ];
+
+
+    # Create an alias for the unstable channel
+    packageOverrides = pkgs: {
+      unstable = import unstableTarball {
+        config = config.nixpkgs.config;
+      };
+    };
+  };
 
 	nix = {
     extraOptions = ''
