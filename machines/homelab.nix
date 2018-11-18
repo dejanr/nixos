@@ -31,6 +31,7 @@
       "tun"
       "virtio"
       "coretemp"
+      "nct6775"
     ];
     kernel.sysctl = {
       "fs.inotify.max_user_watches" = "1048576";
@@ -118,6 +119,10 @@
   services = {
     unifi.enable = true;
 
+    octoprint = {
+      enable = true;
+    };
+
     xserver = {
       enable = true;
       videoDrivers = [ "nvidia" ];
@@ -126,6 +131,8 @@
       };
     };
   };
+
+  users.users.octoprint.extraGroups = [ "dialout" ];
 
   environment = {
     etc."X11/Xresources".text = ''
