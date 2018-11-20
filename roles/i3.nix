@@ -5,12 +5,9 @@
     rofi                         # for app launcher
     rofi-menugen                 # Generates menu based applications using rofi
     feh                          # for background image
-    i3blocks                     # sys info
-    i3lock-fancy                 # lock session
     scrot                        # screenshot
     shutter                      # Screenshot and annotation tool
     lxqt.screengrab              # Crossplatform tool for fast making screenshots
-    xautolock                    # suckless xautolock
     polybar                      # status bar
     xdotool                      # inspect window title
     xorg.utilmacros
@@ -24,7 +21,6 @@
     compton                      # window transitions
     i3minator                    # i3 project manager
     xscreensaver                 # screensaver
-    xss-lock                     # screensaver
     xfce.thunar                  # file amanger
     xfce.thunar_volman
     xfce.thunar-archive-plugin
@@ -91,10 +87,10 @@
         };
       };
 
-      sessionCommands = ''
+      sessionCommands = with pkgs; lib.mkAfter
+      ''
         ${pkgs.dunst}/bin/dunst &
         ${pkgs.compton}/bin/compton --config ~/.compton.conf -b &
-        ${pkgs.xautolock}/bin/xautolock -time 15 -locker ~/.bin/lock &
         ${pkgs.xorg.xsetroot}/bin/xsetroot -cursor_name left_ptr &
         ${pkgs.xorg.xrdb}/bin/xrdb -merge ~/.Xresources &
         ${pkgs.xorg.xrdb}/bin/xrdb -merge /etc/X11/Xresources &

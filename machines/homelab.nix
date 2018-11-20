@@ -15,6 +15,7 @@
     #../roles/transmission.nix
     #../roles/plex.nix
     ../roles/virtualization.nix
+    ../roles/autolock.nix
   ];
 
   boot = {
