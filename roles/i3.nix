@@ -20,6 +20,7 @@
     dunst                        # notifications
     compton                      # window transitions
     i3minator                    # i3 project manager
+    i3blocks
     xscreensaver                 # screensaver
     xfce.thunar                  # file amanger
     xfce.thunar_volman
