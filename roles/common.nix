@@ -73,6 +73,7 @@ in
 				"cdrom" "tape" "dialout"
         "libvirtd"
         "transmission" "plex"
+        "adbusers"
 			];
       shell = "/run/current-system/sw/bin/bash";
       home = "/home/dejanr";
