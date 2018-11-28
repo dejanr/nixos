@@ -61,6 +61,7 @@ in
     xsel # Command-line program for getting and setting the contents of the X selection
     xsettingsd # Provides settings to X11 applications via the XSETTINGS specification
     transmission-gtk
+    zathura # pdf viewer
   ];
 
   nixpkgs.config = {
