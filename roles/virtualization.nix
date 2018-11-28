@@ -21,6 +21,7 @@
   networking.firewall.checkReversePath = false;
 
   virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
 
   virtualisation.docker = {
     enable = true;
