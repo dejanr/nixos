@@ -13,7 +13,7 @@
     ../roles/games.nix
     #../roles/nas.nix
     #../roles/transmission.nix
-    #../roles/plex.nix
+    ../roles/plex.nix
     ../roles/virtualization.nix
   ];
 
