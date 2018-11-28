@@ -89,4 +89,6 @@
     which
     wireshark # network protocol analyzer
   ];
+
+  programs.adb.enable = true;
 }
