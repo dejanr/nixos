@@ -4,7 +4,7 @@
   networking.firewall.allowedTCPPorts = [ 32400 ];
 
   fileSystems."/var/lib/plex" = {
-    device = "root/config/plex";
+    device = "zpool/root/config/plex";
     fsType = "zfs";
   };
 
