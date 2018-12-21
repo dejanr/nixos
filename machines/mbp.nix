@@ -5,7 +5,7 @@
     [
       ../roles/common.nix
       ../roles/desktop.nix
-      ../roles/xmonad.nix
+      ../roles/i3.nix
       ../roles/multimedia.nix
       ../roles/development.nix
       ../roles/services.nix
@@ -14,14 +14,8 @@
   boot = {
     initrd = {
       availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
-      luks.devices = [
-       {
-         name = "nixos-root";
-         device = "/dev/sda3";
-       }
-      ];
     };
-    kernelModules = [ "kvm-intel" ];
+    kernelModules = [ "kvm-intel" "wl" ];
     kernelParams = [
       "hid_apple.fnmode=2"
     ];
@@ -57,23 +51,21 @@
   };
 
   fileSystems."/" =
-    { device = "main/root/nixos";
-      fsType = "zfs";
-    };
-
-  fileSystems."/home" =
-    { device = "main/home";
+    { device = "zpool/root/nixos";
       fsType = "zfs";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/ABE6-1EE4";
+    { device = "/dev/disk/by-uuid/D7F3-5F39";
       fsType = "vfat";
     };
 
-  swapDevices =
-    [ { device = "/dev/zd0"; }
-    ];
+  fileSystems."/home" =
+    { device = "zpool/home";
+      fsType = "zfs";
+    };
+
+  swapDevices = [ ];
 
   networking = {
     hostName = "mbp";
@@ -95,7 +87,6 @@
       modules = [ pkgs.xf86_input_mtrack ];
       videoDrivers = [ "intel" ];
       dpi = 190;
-      xkbOptions = "terminate:ctrl_alt_bksp, ctrl:nocaps";
 
       config =
         ''
@@ -176,7 +167,7 @@
   virtualisation.docker.enable = true;
   virtualisation.docker.storageDriver = "zfs";
 
-  nix.maxJobs = lib.mkDefault 8;
+  nix.maxJobs = lib.mkDefault 4;
 
   system.stateVersion = "18.03";
 }
