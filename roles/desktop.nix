@@ -44,11 +44,13 @@ in
     udiskie # Removable disk automounter for udisks
     pythonPackages.youtube-dl # Command-line tool to download videos from YouTube.com and other sites
     qalculate-gtk # The ultimate desktop calculator
+    pciutils # lspci and other utils
     shotcut # A free, open source, cross-platform video editor
     scrot # screen capturing
     slic3r-prusa3d # G-code generator for 3D printer
     sxiv # image viewer
     surf # suckless browser
+    sutils # small cli utils for battery, clock, essid, exist, narg, temp, uq, volume
     tesseract # OCR engine
     thunderbird # email client
     tigervnc # Fork of tightVNC, made in cooperation with VirtualGL
@@ -61,6 +63,7 @@ in
     xsel # Command-line program for getting and setting the contents of the X selection
     xsettingsd # Provides settings to X11 applications via the XSETTINGS specification
     transmission-gtk
+    zathura # pdf viewer
   ];
 
   nixpkgs.config = {

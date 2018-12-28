@@ -73,8 +73,7 @@
     nixosManual.showManual = false;
 
     # synchronize time using chrony
-    ntp.enable = false;
-    chrony.enable = true;
+    openntpd.enable = true;
 
     postfix = {
       enable = true;

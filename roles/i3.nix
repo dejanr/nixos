@@ -21,6 +21,7 @@
     compton                      # window transitions
     i3minator                    # i3 project manager
     i3blocks
+    i3lock-fancy
     xscreensaver                 # screensaver
     xfce.thunar                  # file amanger
     xfce.thunar_volman
@@ -73,9 +74,9 @@
     };
 
     desktopManager = {
-      default = "lxqt";
+      default = "plasma5";
       xterm.enable = false;
-      lxqt.enable = true;
+      plasma5.enable = true;
     };
 
     displayManager = {

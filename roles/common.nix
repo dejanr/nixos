@@ -6,25 +6,6 @@ in
 {
   time.timeZone = "Europe/Berlin";
 
-  fonts = {
-    enableFontDir = true;
-
-    fonts = with pkgs; [
-      bakoma_ttf
-      dejavu_fonts
-      font-awesome-ttf
-      inconsolata
-      liberation_ttf
-      proggyfonts
-      source-sans-pro
-      source-code-pro
-      terminus_font
-      ttf_bitstream_vera
-      ubuntu_font_family
-      unifont
-    ];
-  };
-
   environment.variables = {
   };
 
@@ -34,7 +15,6 @@ in
     linuxPackages.cpupower # Tool to examine and tune power saving features
     wget # Tool for retrieving files
     neovim
-    vimHugeX
     rsync #	A fast incremental file transfer utility
     unzip # An extraction utility for archives compressed in .zip format
     zip # Compressor/archiver for creating and modifying zipfiles
