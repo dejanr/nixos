@@ -1,10 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [
-    ];
-
   services = {
 		printing.enable = true;
 		avahi.enable = true;
@@ -72,22 +68,12 @@
     upower.enable = true;
     nixosManual.showManual = false;
 
-    # synchronize time using chrony
+    # synchronize time
     openntpd.enable = true;
 
     postfix = {
       enable = true;
       setSendmail = true;
-    };
-
-    redis = {
-      enable = true;
-    };
-
-    postgresql = {
-      enable = true;
-      authentication = "local all all trust";
-      enableTCPIP = true;
     };
   };
 }

@@ -6,6 +6,7 @@
       ../roles/common.nix
       ../roles/desktop.nix
       ../roles/i3.nix
+      ../roles/autolock.nix
       ../roles/multimedia.nix
       ../roles/development.nix
       ../roles/services.nix
@@ -29,10 +30,10 @@
 
     supportedFilesystems = [ "zfs" ];
     cleanTmpDir = true;
-  
+
     loader = {
       efi.efiSysMountPoint = "/efi";
-  
+
       grub = {
   	device = "nodev";
   	efiSupport = true;
