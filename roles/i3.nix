@@ -74,9 +74,8 @@
     };
 
     desktopManager = {
-      default = "plasma5";
+      default = "none";
       xterm.enable = false;
-      plasma5.enable = true;
     };
 
     displayManager = {
