@@ -43,6 +43,7 @@ in
     printrun # 3d printing host software
     udiskie # Removable disk automounter for udisks
     pythonPackages.youtube-dl # Command-line tool to download videos from YouTube.com and other sites
+    python36Packages.mps-youtube # cheap spotify
     qalculate-gtk # The ultimate desktop calculator
     pciutils # lspci and other utils
     shotcut # A free, open source, cross-platform video editor
