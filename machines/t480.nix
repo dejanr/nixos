@@ -14,6 +14,8 @@
    ];
 
   boot = {
+    extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
+
     initrd = {
       availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
       luks.devices.decrypted-hdd = {
@@ -22,7 +24,16 @@
       };
     };
 
-    kernelModules = [ "kvm-intel" ];
+    kernelModules = [
+      "acpi_call"
+      "kvm-intel"
+      "i915"
+    ];
+
+    kernelParams = [
+      "i915.enable_fbc=1"
+      "i915.enable_psr=2"
+    ];
 
     kernel.sysctl = {
       "fs.inotify.max_user_watches" = "1048576";
@@ -63,7 +74,14 @@
     nameservers = [ "8.8.8.8" "8.8.4.4" ];
   };
 
-  hardware.opengl.extraPackages = [ pkgs.vaapiIntel ];
+  hardware.cpu.intel.updateMicrocode =
+    lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  hardware.opengl.extraPackages = with pkgs; [
+    vaapiIntel
+    vaapiVdpau
+    libvdpau-va-gl
+  ];
 
   services = {
     xserver = {
@@ -87,6 +105,42 @@
 
   virtualisation.docker.enable = true;
   virtualisation.docker.storageDriver = "zfs";
+
+  # Temporary fix for cpu throttling issues visible in the kernel log
+  # (journalctl -k) by setting the same temperature limits used by
+  # Window$
+  # See https://wiki.archlinux.org/index.php/Lenovo_ThinkPad_X1_Carbon_(Gen_6)#Power_management.2FThrottling_issues
+  systemd.services.cpu-throttling = {
+    enable = true;
+    description = "Sets the offset to 3 °C, so the new trip point is 97 °C";
+    documentation = [
+      "https://wiki.archlinux.org/index.php/Lenovo_ThinkPad_X1_Carbon_(Gen_6)#Power_management.2FThrottling_issues"
+    ];
+    path = [ pkgs.msr-tools ];
+    script = "wrmsr -a 0x1a2 0x3000000";
+    serviceConfig = {
+      Type = "oneshot";
+    };
+    wantedBy = [
+      "timers.target"
+    ];
+  };
+
+  systemd.timers.cpu-throttling = {
+    enable = true;
+    description = "Set cpu heating limit to 97 °C";
+    documentation = [
+      "https://wiki.archlinux.org/index.php/Lenovo_ThinkPad_X1_Carbon_(Gen_6)#Power_management.2FThrottling_issues"
+    ];
+    timerConfig = {
+      OnActiveSec = 60;
+      OnUnitActiveSec = 60;
+      Unit = "cpu-throttling.service";
+    };
+    wantedBy = [
+      "timers.target"
+    ];
+  };
 
   nix.maxJobs = lib.mkDefault 8;
 
