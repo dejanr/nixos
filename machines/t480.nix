@@ -30,6 +30,12 @@
       "i915"
     ];
 
+    blacklistedKernelModules = [
+      "fbcon"
+      "noveau"
+      "bbswitch"
+    ];
+
     kernelParams = [
       "i915.enable_fbc=1"
       "i915.enable_psr=2"
@@ -46,11 +52,11 @@
       efi.efiSysMountPoint = "/efi";
 
       grub = {
-  	device = "nodev";
-  	efiSupport = true;
-  	extraInitrd = "/boot/initrd.keys.gz";
-  	enableCryptodisk = true;
-  	zfsSupport = true;
+      device = "nodev";
+      efiSupport = true;
+      extraInitrd = "/boot/initrd.keys.gz";
+      enableCryptodisk = true;
+      zfsSupport = true;
         efiInstallAsRemovable = true;
       };
     };
@@ -89,12 +95,13 @@
       enableTCP = false;
       modules = [ pkgs.xf86_input_mtrack ];
       videoDrivers = [ "intel" ];
+      dpi = 192;
     };
   };
 
   environment = {
     etc."X11/Xresources".text = ''
-      Xft.dpi: 190
+      Xft.dpi: 192
     '';
     variables.QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     variables.GDK_SCALE = "2";
