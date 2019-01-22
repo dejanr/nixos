@@ -77,7 +77,6 @@
   networking = {
     hostName = "theory";
     hostId = "7392bf5d";
-    nameservers = [ "8.8.8.8" "8.8.4.4" ];
   };
 
   hardware.cpu.intel.updateMicrocode =

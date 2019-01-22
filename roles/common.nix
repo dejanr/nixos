@@ -69,11 +69,6 @@ in
   networking = {
     networkmanager.enable = true;
 
-	  nameservers = [
-      "8.8.4.4"
-      "8.8.8.8"
-    ];
-
     firewall = {
       enable = true;
       allowPing = true;

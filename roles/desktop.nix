@@ -46,6 +46,7 @@ in
     python36Packages.mps-youtube # cheap spotify
     qalculate-gtk # The ultimate desktop calculator
     pciutils # lspci and other utils
+    slack # slack desktop client
     shotcut # A free, open source, cross-platform video editor
     scrot # screen capturing
     slic3r-prusa3d # G-code generator for 3D printer
@@ -65,6 +66,7 @@ in
     xsettingsd # Provides settings to X11 applications via the XSETTINGS specification
     transmission-gtk
     zathura # pdf viewer
+    zoom-us # zoom.us desktop app
   ];
 
   nixpkgs.config = {
