@@ -94,13 +94,16 @@
       enableTCP = false;
       modules = [ pkgs.xf86_input_mtrack ];
       videoDrivers = [ "intel" ];
-      dpi = 192;
+
+      monitorSection = ''
+        DisplaySize 342 192
+      '';
     };
   };
 
   environment = {
     etc."X11/Xresources".text = ''
-      Xft.dpi: 192
+      Xft.dpi: 190
     '';
     variables.QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     variables.GDK_SCALE = "2";

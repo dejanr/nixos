@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -55,8 +55,11 @@
 
   services.xserver = {
     enable = true;
+    dpi = 190;
     useGlamor = true;
     autorun = true;
+
+    startDbusSession = true;
 
     libinput = {
       enable = true;
@@ -79,22 +82,25 @@
     };
 
     displayManager = {
-      slim = {
-        enable = true;
-        defaultUser = "dejanr";
-        theme = pkgs.fetchurl {
-          url = "https://github.com/edwtjo/nixos-black-theme/archive/v1.0.tar.gz";
-          sha256 = "13bm7k3p6k7yq47nba08bn48cfv536k4ipnwwp1q1l2ydlp85r9d";
-        };
+      lightdm = {
+      enable = true;
+        background = "#1e1e1e";
+        greeters.mini.enable = true;
+        greeters.mini.user = "dejanr";
+        greeters.mini.extraConfig = ''
+          window-color = "#268bd2"
+          xft-dpi=190
+          dpi=190
+        '';
       };
 
       sessionCommands = with pkgs; lib.mkAfter
       ''
-        ${pkgs.dunst}/bin/dunst &
-        ${pkgs.compton}/bin/compton --config ~/.compton.conf -b &
-        ${pkgs.xorg.xsetroot}/bin/xsetroot -cursor_name left_ptr &
         ${pkgs.xorg.xrdb}/bin/xrdb -merge ~/.Xresources &
         ${pkgs.xorg.xrdb}/bin/xrdb -merge /etc/X11/Xresources &
+        ${pkgs.compton}/bin/compton --config ~/.compton.conf -b &
+        ${pkgs.xorg.xsetroot}/bin/xsetroot -cursor_name left_ptr &
+        ${pkgs.dunst}/bin/dunst &
         ${pkgs.feh}/bin/feh --bg-fill /etc/nixos/wallpapers/bluemist.jpg &
         ${pkgs.networkmanagerapplet}/bin/nm-applet &
         ${pkgs.emacs}/bin/emacs --daemon &
@@ -103,4 +109,7 @@
 
 		xkbOptions = "terminate:ctrl_alt_bksp, ctrl:nocaps";
   };
+
+  # Enable secrets store.
+  security.pam.services.lightdm.enableGnomeKeyring = true;
 }

@@ -12,6 +12,7 @@ in
     termite # A simple VTE-based terminal
     weechat # A fast, light and extensible chat client
     powertop # Analyze power consumption on Intel-based laptops
+    openfortivpn # Client for PPP+SSL VPN tunnel services
     openvpn # A robust and highly flexible tunneling application
     update-resolv-conf # Script to update your /etc/resolv.conf with DNS settings that come from the received push dhcp-options pciutils # A collection of programs for inspecting and manipulating configuration of PCI devices
     chromium # An open source web browser from Google
@@ -47,7 +48,6 @@ in
     qalculate-gtk # The ultimate desktop calculator
     pciutils # lspci and other utils
     slack # slack desktop client
-    shotcut # A free, open source, cross-platform video editor
     scrot # screen capturing
     slic3r-prusa3d # G-code generator for 3D printer
     sxiv # image viewer

@@ -143,6 +143,7 @@ in
   }];
 
   nixpkgs.config = {
+    android_sdk.accept_license = true;
     config.allowBroken = true;
 
     permittedInsecurePackages = [
@@ -159,6 +160,7 @@ in
   };
 
 	nix = {
+    useSandbox = false;
     extraOptions = ''
       gc-keep-outputs = false
       gc-keep-derivations = false
