@@ -47,6 +47,7 @@ in
     python36Packages.mps-youtube # cheap spotify
     qalculate-gtk # The ultimate desktop calculator
     pciutils # lspci and other utils
+    recoll # A full-text search tool
     slack # slack desktop client
     scrot # screen capturing
     slic3r-prusa3d # G-code generator for 3D printer
