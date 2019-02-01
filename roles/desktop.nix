@@ -62,6 +62,7 @@ in
     xsettingsd # Provides settings to X11 applications via the XSETTINGS specification
     transmission-gtk
     zathura # pdf viewer
+    zoom-us # zoom.us desktop app
   ];
 
   nixpkgs.config = {

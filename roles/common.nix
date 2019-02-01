@@ -6,25 +6,6 @@ in
 {
   time.timeZone = "Europe/Berlin";
 
-  fonts = {
-    enableFontDir = true;
-
-    fonts = with pkgs; [
-      bakoma_ttf
-      dejavu_fonts
-      font-awesome-ttf
-      inconsolata
-      liberation_ttf
-      proggyfonts
-      source-sans-pro
-      source-code-pro
-      terminus_font
-      ttf_bitstream_vera
-      ubuntu_font_family
-      unifont
-    ];
-  };
-
   environment.variables = {
   };
 
@@ -85,14 +66,10 @@ in
 
   programs.mosh.enable = true;
   programs.vim.defaultEditor = true;
+  programs.ssh.startAgent = true;
 
   networking = {
     networkmanager.enable = true;
-
-	  nameservers = [
-      "8.8.4.4"
-      "8.8.8.8"
-    ];
 
     firewall = {
       enable = true;
@@ -169,6 +146,7 @@ in
   }];
 
   nixpkgs.config = {
+    android_sdk.accept_license = true;
     config.allowBroken = true;
 
     permittedInsecurePackages = [
@@ -185,6 +163,7 @@ in
   };
 
 	nix = {
+    useSandbox = false;
     extraOptions = ''
       gc-keep-outputs = false
       gc-keep-derivations = false
