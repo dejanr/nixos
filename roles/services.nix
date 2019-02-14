@@ -4,6 +4,7 @@
   services = {
 		printing.enable = true;
 		avahi.enable = true;
+    avahi.nssmdns = true;
     urxvtd.enable = true;
 
     mpd.enable = true;

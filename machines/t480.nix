@@ -98,6 +98,8 @@
       monitorSection = ''
         DisplaySize 342 192
       '';
+
+      multitouch.buttonsMap = [ 1 1 1 ];
     };
   };
 
