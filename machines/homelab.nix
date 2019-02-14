@@ -121,6 +121,7 @@
 
     octoprint = {
       enable = true;
+      port = 8000;
     };
 
     xserver = {

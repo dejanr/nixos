@@ -31,7 +31,7 @@
       useSSL = false;
       modules = [ "adminlog" "log" ];
       nick = "dejanr";
-      port = 5000;
+      port = 9000;
       # passBlock with `nix-shell -p znc --command "znc --makepass"`.
       # and place it inside secrets.nix
 			passBlock = (import ../secrets.nix).zncPassBlock;

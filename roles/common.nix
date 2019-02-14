@@ -80,6 +80,9 @@ in
         25565 # minecraft server
         80
         443
+        3000
+        4000
+        5000
       ];
       allowedTCPPortRanges = [];
       allowedUDPPorts = [];

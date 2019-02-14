@@ -28,4 +28,6 @@
     enableOnBoot = true;
     autoPrune.enable = true;
   };
+
+  virtualisation.lxd.zfsSupport = true;
 }
