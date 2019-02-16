@@ -66,6 +66,7 @@ in
     zoom-us # zoom.us desktop app
     magic-wormhole # Securely transfer data between computers
     transporter # Simple magic-wormhole client
+    kazam	# A screencasting program created with design in mind
   ];
 
   nixpkgs.config = {
