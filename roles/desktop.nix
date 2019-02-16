@@ -64,6 +64,8 @@ in
     xsettingsd # Provides settings to X11 applications via the XSETTINGS specification
     zathura # pdf viewer
     zoom-us # zoom.us desktop app
+    magic-wormhole # Securely transfer data between computers
+    transporter # Simple magic-wormhole client
   ];
 
   nixpkgs.config = {
