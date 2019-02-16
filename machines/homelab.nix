@@ -13,8 +13,8 @@
     ../roles/games.nix
     #../roles/nas.nix
     #../roles/transmission.nix
-    ../roles/plex.nix
-    ../roles/virtualization.nix
+    #../roles/plex.nix
+    #../roles/virtualization.nix
   ];
 
   boot = {
@@ -22,7 +22,6 @@
     initrd.kernelModules = [ "vfio_pci" "fbcon" ];
     kernelModules = [
       "kvm"
-      "kvm_intel"
       "kvm-intel"
       "vfio"
       "vfio_pci"
@@ -78,26 +77,26 @@
       generationsDir.enable = false;
       generationsDir.copyKernels = false;
       efi.canTouchEfiVariables = true;
-      timeout = 1;
+      timeout = 3;
     };
 
     cleanTmpDir = true;
   };
 
-  fileSystems."/" =
-    { device = "zpool/root/nixos";
-      fsType = "zfs";
-    };
+  fileSystems."/" = {
+    device = "rpool/root/nixos";
+    fsType = "zfs";
+  };
 
-  fileSystems."/home" =
-    { device = "zpool/home";
-      fsType = "zfs";
-    };
+  fileSystems."/home" = {
+    device = "rpool/home";
+    fsType = "zfs";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/FECA-3A1C";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/sdb1";
+    fsType = "vfat";
+  };
 
   swapDevices = [ ];
 
@@ -119,10 +118,11 @@
   services = {
     unifi.enable = true;
 
-    octoprint = {
-      enable = true;
-      port = 8000;
-    };
+    # currently broken
+    #octoprint = {
+    #  enable = true;
+    #  port = 8000;
+    #};
 
     xserver = {
       enable = true;
@@ -142,4 +142,6 @@
   };
 
   nix.maxJobs = lib.mkDefault 8;
+
+  system.stateVersion = "18.09";
 }
