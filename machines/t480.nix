@@ -91,21 +91,14 @@
   services = {
     xserver = {
       enable = true;
-      enableTCP = false;
       modules = [ pkgs.xf86_input_mtrack ];
       videoDrivers = [ "intel" ];
-
-      monitorSection = ''
-        DisplaySize 342 192
-      '';
-
-      multitouch.buttonsMap = [ 1 1 1 ];
     };
   };
 
   environment = {
     etc."X11/Xresources".text = ''
-      Xft.dpi: 190
+      Xft.dpi: 144
     '';
     variables.QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     variables.GDK_SCALE = "2";
