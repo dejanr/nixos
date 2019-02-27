@@ -69,8 +69,7 @@
     upower.enable = true;
     nixosManual.showManual = false;
 
-    # synchronize time
-    openntpd.enable = true;
+    chrony.enable = true;
 
     postfix = {
       enable = true;
