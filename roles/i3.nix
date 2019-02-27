@@ -55,7 +55,7 @@
 
   services.xserver = {
     enable = true;
-    dpi = 190;
+    dpi = 144;
     useGlamor = true;
     autorun = true;
 
@@ -96,14 +96,9 @@
 
       sessionCommands = with pkgs; lib.mkAfter
       ''
-        ${pkgs.xorg.xrdb}/bin/xrdb -merge ~/.Xresources &
-        ${pkgs.xorg.xrdb}/bin/xrdb -merge /etc/X11/Xresources &
-        ${pkgs.compton}/bin/compton --config ~/.compton.conf -b &
-        ${pkgs.xorg.xsetroot}/bin/xsetroot -cursor_name left_ptr &
-        ${pkgs.dunst}/bin/dunst &
         ${pkgs.feh}/bin/feh --bg-fill /etc/nixos/wallpapers/bluemist.jpg &
-        ${pkgs.networkmanagerapplet}/bin/nm-applet &
-        ${pkgs.emacs}/bin/emacs --daemon &
+        ${pkgs.xorg.xrdb}/bin/xrdb -merge ~/.Xresources
+        ${pkgs.xorg.xrdb}/bin/xrdb -merge /etc/X11/Xresources
       '';
     };
 
