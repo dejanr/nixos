@@ -27,12 +27,23 @@
 
   hardware.bluetooth = {
     enable = true;
+    powerOnBoot = true;
+    extraConfig = ''
+      [General]
+      Enable=Source,Sink,Media,Socket
+      [Policy]
+      AutoEnable=true
+    '';
   };
 
   hardware.pulseaudio = {
     enable = true;
     support32Bit = true;
-    # https://nixos.wiki/wiki/Bluetooth#Using_Bluetooth_headsets_with_PulseAudio
     package = pkgs.pulseaudioFull;
+    extraConfig = ''
+      load-module module-bluetooth-policy
+      load-module module-bluetooth-discover
+      load-module module-switch-on-connect
+    '';
   };
 }
