@@ -10,7 +10,7 @@
     ../roles/development.nix
     ../roles/services.nix
     ../roles/electronics.nix
-    ../roles/games.nix
+    #../roles/games.nix
     #../roles/nas.nix
     #../roles/transmission.nix
     #../roles/plex.nix
@@ -73,11 +73,14 @@
     supportedFilesystems = [ "zfs" ];
 
     loader = {
-      systemd-boot.enable = true;
-      generationsDir.enable = false;
-      generationsDir.copyKernels = false;
       efi.canTouchEfiVariables = true;
-      timeout = 3;
+      efi.efiSysMountPoint = "/boot";
+
+      grub.enable = true;
+      grub.version = 2;
+      grub.devices = ["nodev"];
+      grub.efiSupport = true;
+      grub.useOSProber = true;
     };
 
     cleanTmpDir = true;
@@ -119,10 +122,10 @@
     unifi.enable = true;
 
     # currently broken
-    #octoprint = {
-    #  enable = true;
-    #  port = 8000;
-    #};
+    octoprint = {
+      enable = true;
+      port = 8000;
+    };
 
     xserver = {
       enable = true;
