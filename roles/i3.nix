@@ -85,13 +85,16 @@
       lightdm = {
       enable = true;
         background = "#1e1e1e";
-        greeters.mini.enable = true;
-        greeters.mini.user = "dejanr";
-        greeters.mini.extraConfig = ''
-          window-color = "#268bd2"
-          xft-dpi=190
-          dpi=190
-        '';
+
+        greeters.mini = {
+          enable = true;
+          user = "dejanr";
+          extraConfig = ''
+            window-color = "#585858"
+            xft-dpi=144
+            dpi=144
+          '';
+        };
       };
 
       sessionCommands = with pkgs; lib.mkAfter

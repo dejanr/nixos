@@ -32,8 +32,12 @@
 
     blacklistedKernelModules = [
       "fbcon"
-      "noveau"
       "bbswitch"
+      "nvidia"
+      "nvidia-drm"
+      "nvidia-uvm"
+      "nvidia-modesetting"
+      "nouveau"
     ];
 
     kernelParams = [
@@ -88,11 +92,62 @@
     libvdpau-va-gl
   ];
 
+  hardware.bumblebee = {
+    enable = true;
+    pmMethod = "bbswitch";
+  };
+
   services = {
     xserver = {
       enable = true;
       modules = [ pkgs.xf86_input_mtrack ];
       videoDrivers = [ "intel" ];
+
+      synaptics.enable = false;
+
+      libinput = {
+        enable = true;
+        disableWhileTyping = true;
+        scrollMethod = "twofinger";
+        tapping = true;
+      };
+
+      extraConfig = ''
+        Section "InputClass"
+        Identifier     "Enable libinput for TrackPoint"
+        MatchIsPointer "on"
+        Driver         "libinput"
+        EndSection
+      '';
+
+      deviceSection = ''
+        Driver "intel"
+        Option "TearFree" "true"
+        Option "DRI" "3"
+        Option "Backlight" "intel_backlight"
+      '';
+    };
+
+    tlp = {
+      enable = true;
+      extraConfig = ''
+        CPU_SCALING_GOVERNOR_ON_AC=performance
+        CPU_SCALING_GOVERNOR_ON_BAT=ondemand
+        SCHED_POWERSAVE_ON_AC=0
+        SCHED_POWERSAVE_ON_BAT=1
+        ENERGY_PERF_POLICY_ON_AC=performance
+        ENERGY_PERF_POLICY_ON_BAT=powersave
+        PCIE_ASPM_ON_AC=performance
+        PCIE_ASPM_ON_BAT=powersave
+        WIFI_PWR_ON_AC=1
+        WIFI_PWR_ON_BAT=5
+        RUNTIME_PM_ON_AC=on
+        RUNTIME_PM_ON_BAT=auto
+        USB_AUTOSUSPEND=0
+        USB_BLACKLIST_WWAN=1
+        DEVICES_TO_DISABLE_ON_STARTUP="bluetooth"
+        SOUND_POWER_SAVE_ON_BAT=0
+      '';
     };
   };
 
@@ -109,42 +164,6 @@
 
   virtualisation.docker.enable = true;
   virtualisation.docker.storageDriver = "zfs";
-
-  # Temporary fix for cpu throttling issues visible in the kernel log
-  # (journalctl -k) by setting the same temperature limits used by
-  # Window$
-  # See https://wiki.archlinux.org/index.php/Lenovo_ThinkPad_X1_Carbon_(Gen_6)#Power_management.2FThrottling_issues
-  systemd.services.cpu-throttling = {
-    enable = true;
-    description = "Sets the offset to 3 °C, so the new trip point is 97 °C";
-    documentation = [
-      "https://wiki.archlinux.org/index.php/Lenovo_ThinkPad_X1_Carbon_(Gen_6)#Power_management.2FThrottling_issues"
-    ];
-    path = [ pkgs.msr-tools ];
-    script = "wrmsr -a 0x1a2 0x3000000";
-    serviceConfig = {
-      Type = "oneshot";
-    };
-    wantedBy = [
-      "timers.target"
-    ];
-  };
-
-  systemd.timers.cpu-throttling = {
-    enable = true;
-    description = "Set cpu heating limit to 97 °C";
-    documentation = [
-      "https://wiki.archlinux.org/index.php/Lenovo_ThinkPad_X1_Carbon_(Gen_6)#Power_management.2FThrottling_issues"
-    ];
-    timerConfig = {
-      OnActiveSec = 60;
-      OnUnitActiveSec = 60;
-      Unit = "cpu-throttling.service";
-    };
-    wantedBy = [
-      "timers.target"
-    ];
-  };
 
   nix.maxJobs = lib.mkDefault 8;
 
