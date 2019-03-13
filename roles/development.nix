@@ -55,7 +55,6 @@
     llvm
     lshw
     lsof
-    meld # visual diff and merge tool
     mercurial
     mosh # mobile shell, ssh replacement
     mr # multiple repository managment

@@ -14,7 +14,6 @@ in
     electrum # bitcoin thin-client
     evince # gnome document viewer
     firefox # A web browser built from Firefox source tree
-    freecad # General purpose Open Source 3D CAD/MCAD/CAx/CAE/PLM modeler
     gimp # Image Manipulation Program
     gnupg # encryption
     google-chrome # google chrome browser
