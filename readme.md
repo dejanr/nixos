@@ -1,5 +1,7 @@
 **Deprecated** I have moved nixos configurations inside [dejanr/dotfiles](https://github.com/dejanr/dotfiles)
 
+----------------------------------------------------
+
 NixOS configuration for various machines.
 
 ### Structure
